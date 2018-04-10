@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1 style="color: red;">Hello World!</h1>
         <title>Doña Clarita </title>
     </head>
     <body>
