@@ -15,7 +15,5 @@
         <h1 style="color: red;">Hello World!</h1>
         <title>Doña Clarita </title>
     </head>
-    <body>
-        
-    </body>
+     </body>
 </html>
