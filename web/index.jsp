@@ -12,7 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-       <legend>	145 <br>	 
+
+       <legend>	Doña Clarita <br>	 
+
                 <div class="ContentForm">
                   
                     <form action="./UsuariosServlet" method="post" name="FormEntrar">
