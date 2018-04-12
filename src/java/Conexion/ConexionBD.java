@@ -20,15 +20,35 @@ public class ConexionBD
 
     
     //METODO QUE REALIZA LA CONEXION
-    public Connection getConnection() throws SQLException, 
-            ClassNotFoundException 
+    public Connection getConnection() 
     {
-        
-        DriverManager.registerDriver(new OracleDriver());
+        try {
+            DriverManager.registerDriver(new OracleDriver());
         Connection conn = null;
         conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","DONACLARITA","system");
         System.out.println("¡Conexión Exitosa!");
         return conn;
+        } catch (Exception e) 
+        {
+            return null;
+        }
+        
     }
+    
+
+   public static void main(String [] arg) throws SQLException
+   {
+       ConexionBD cb= new ConexionBD();
+       try {
+            cb.getConnection();
+       } catch (Exception e) 
+       
+       {
+           e.printStackTrace();
+       }
+      
+              
+   }
+
 
 }
