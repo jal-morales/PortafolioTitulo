@@ -13,7 +13,7 @@
     </head>
     <body>
 
-    <legend style="color: red;">	Doña Clarita <br>	 
+    <legend style="color: red;">Doña Clarita <br>	 
 
                 <div class="ContentForm">
                   
