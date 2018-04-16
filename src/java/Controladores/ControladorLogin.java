@@ -19,18 +19,20 @@ public class ControladorLogin
   
     //login a usuario
 
-      public boolean Login()
+      public boolean Login(String codEmpresa,String usser,String pass)
   { boolean respuesta =false;
       try {           
                  //llamamos a la conexion 
             ConexionBD con = new ConexionBD();
             //llamamos a la clase conect           
                  Connection  conetar=con.getConnection();  
-             String consulta  = "select * from empresa;";   
+             String consulta  = "select * from LOGIN where CODEMPRESA='"+codEmpresa+"' and USUARIO='"+usser+"' and PASSWORD='"+pass+"'";   
              System.out.println(consulta);
-             PreparedStatement stms= conetar.prepareStatement(consulta);                   
-             ResultSet rs =stms.executeQuery(consulta); 
-             if (rs.absolute(1)) 
+          
+             try {
+              PreparedStatement stms= conetar.prepareStatement(consulta);
+              ResultSet rs =stms.executeQuery(consulta); 
+               if (rs.next()) 
              {
                    respuesta=true;
                  return respuesta; 
@@ -39,19 +41,26 @@ public class ControladorLogin
              {
                    return false;
              }
+          } catch (Exception e) 
+          {
+              e.printStackTrace();
+          }
+              
       } catch (Exception e) 
       {
             System.out.println("Revisar aca Controlador User");
-        e.printStackTrace();
+            e.printStackTrace();
       }
       return respuesta;     
   }
-      
+     
+      /*
       public static void main(String [] arg)
       {
           ControladorLogin cl= new ControladorLogin();
-          System.out.println(cl.Login());
-      }  
+          System.out.println(cl.Login("1","jlopez","17336928-k"));
+      } 
+*/
 
     
 }
