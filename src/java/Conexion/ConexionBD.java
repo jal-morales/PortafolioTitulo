@@ -34,6 +34,7 @@ public class ConexionBD
         }       
     }
    //METODO MAIN PRUEBA DE CONEXION
+    /**
    public static void main(String [] arg) throws SQLException
    {
        ConexionBD cb= new ConexionBD();
@@ -46,6 +47,6 @@ public class ConexionBD
       
               
    }
-
+**/
 
 }

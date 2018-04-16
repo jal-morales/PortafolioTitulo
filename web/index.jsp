@@ -17,15 +17,15 @@
 
                 <div class="ContentForm">
                   
-                    <form action="./UsuariosServlet" method="post" name="FormEntrar">
+                    <form action="./UsserServlet" method="post" name="FormEntrar">
                         <div class="input-group input-group-lg">
                             <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-home"></i></span>
-                            <input type="text" class="form-control" name="txtCodEmpresa" placeholder="Cod Empresa" id="Correo" aria-describedby="sizing-addon1" required >
+                            <input type="text" class="form-control" name="txtCodEmpresa" placeholder="1" id="Correo" aria-describedby="sizing-addon1" required >
                         </div>
                         <br>
                         <div class="input-group input-group-lg">
                             <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input type="email" class="form-control" name="txtcorreouser" placeholder="Correo" id="Correo" aria-describedby="sizing-addon1"autocomplete="off" >
+                            <input type="text" class="form-control" name="txtUsuario" placeholder="Admin" id="Correo" aria-describedby="sizing-addon1"autocomplete="off" >
                         </div>
                         <br>
                         <div class="input-group input-group-lg">
@@ -35,7 +35,7 @@
                         </div>
                         <br>
                         <button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" name="btnLogin" type="submit">Entrar</button>
-                        <div class="opcioncontra"><a href="olvidasteContrasena.jsp">Olvidaste tu contraseña?</a>
+                        <div class="opcioncontra"><a href="#">Olvidaste tu contraseña?</a>
 
                         </div>
                     </form>
