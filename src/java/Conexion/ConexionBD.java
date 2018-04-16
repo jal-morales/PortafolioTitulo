@@ -31,18 +31,15 @@ public class ConexionBD
         } catch (Exception e) 
         {
             return null;
-        }
-        
+        }       
     }
-    
-
+   //METODO MAIN PRUEBA DE CONEXION
    public static void main(String [] arg) throws SQLException
    {
        ConexionBD cb= new ConexionBD();
        try {
             cb.getConnection();
-       } catch (Exception e) 
-       
+       } catch (Exception e)       
        {
            e.printStackTrace();
        }

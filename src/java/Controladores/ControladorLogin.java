@@ -21,18 +21,14 @@ public class ControladorLogin
 
       public boolean Login()
   { boolean respuesta =false;
-      try {
-           
+      try {           
                  //llamamos a la conexion 
             ConexionBD con = new ConexionBD();
             //llamamos a la clase conect           
-                 Connection  conetar=con.getConnection();
-                 
-               
+                 Connection  conetar=con.getConnection();  
              String consulta  = "select * from empresa;";   
              System.out.println(consulta);
-             PreparedStatement stms= conetar.prepareStatement(consulta);      
-             
+             PreparedStatement stms= conetar.prepareStatement(consulta);                   
              ResultSet rs =stms.executeQuery(consulta); 
              if (rs.absolute(1)) 
              {
@@ -43,14 +39,12 @@ public class ControladorLogin
              {
                    return false;
              }
-
       } catch (Exception e) 
       {
             System.out.println("Revisar aca Controlador User");
         e.printStackTrace();
       }
-      return respuesta;
-      
+      return respuesta;     
   }
       
       public static void main(String [] arg)
