@@ -67,13 +67,14 @@ public class UsserServlet extends HttpServlet {
 
         }
     }
-    //dse valida el usuario en login 
+     //dse valida el usuario en login 
     public boolean validar( String codEmpresa,String usser, String pass)
     {
      ControladorLogin ctrl= new ControladorLogin();
      
      return ctrl.Login(codEmpresa, usser, pass);
     }
+   
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
