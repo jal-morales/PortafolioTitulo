@@ -17,7 +17,7 @@ import java.sql.ResultSet;
 public class ControladorLogin 
 {
   
-    //login a usuario
+    //Valida si el usuario se encuentra en la base de datos
 
       public boolean Login(String codEmpresa,String usser,String pass)
   { boolean respuesta =false;
