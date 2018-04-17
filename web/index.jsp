@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Begin</title>
+  <title>Hostal Doña Clarita</title>
   <!-- Css -->
   <link rel="stylesheet" href="css/bs/bootstrap.css">
   <link rel="stylesheet" href="css/bs/bootstrap-grid.css">
