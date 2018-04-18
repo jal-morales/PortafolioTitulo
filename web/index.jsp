@@ -53,7 +53,7 @@
   <!-- end sht -->
   <!-- Content-->
   <section class="content">
-    <img class="img-fluid" src="img/slider-1.png" alt="">
+      <img class="img-fluid" src="img/slider-1.png" alt="" width="100%">
   </section>
   <!-- End Content -->
   <div style="height: 2px; background: #f2f9ee"></div>
