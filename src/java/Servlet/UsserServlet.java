@@ -39,11 +39,11 @@ public class UsserServlet extends HttpServlet {
         
             if (btnLogin!=null) 
             {
-                String codEmpresa=request.getParameter("txtCodEmpresa");
+                int codEmpresa=Integer.parseInt(request.getParameter("txtCodEmpresa"));
                 String  userr=request.getParameter("txtUsuario");
                 String pass= request.getParameter("txtpassword");
                 
-                if (codEmpresa!=null && userr!=null && pass!=null ) 
+                if (codEmpresa!=0 && userr!=null && pass!=null ) 
                 {
                     if (validar(codEmpresa, userr, pass)==true) 
                     {
@@ -71,7 +71,7 @@ public class UsserServlet extends HttpServlet {
         }
     }
     //se valida el usuario en login 
-    public boolean validar( String codEmpresa,String usser, String pass)
+    public boolean validar( int  codEmpresa,String usser, String pass)
     {
      ControladorLogin ctrl= new ControladorLogin();
      

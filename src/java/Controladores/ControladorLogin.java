@@ -9,6 +9,7 @@ import Conexion.ConexionBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  *
@@ -19,19 +20,21 @@ public class ControladorLogin
   
     //Valida si el usuario se encuentra en la base de datos
 
-      public boolean Login(String codEmpresa,String usser,String pass)
+      public boolean Login(int codEmpresa,String usser,String pass)
   { boolean respuesta =false;
       try {           
                  //llamamos a la conexion 
             ConexionBD con = new ConexionBD();
             //llamamos a la clase conect           
-                 Connection  conetar=con.getConnection();  
-             String consulta  = "select * from LOGIN where CODEMPRESA='"+codEmpresa+"' and USUARIO='"+usser+"' and PASSWORD='"+pass+"'";   
+                 Connection  conetar=con.getConnection(); 
+                 Statement stms = conetar.createStatement();
+             String consulta  = "select * from LOGIN where EMPRESA_CODEMPRESA="+codEmpresa+" and USUARIO='"+usser+"' and PASSWORD='"+pass+"'";   
              System.out.println(consulta);
           
              try {
-              PreparedStatement stms= conetar.prepareStatement(consulta);
+              //PreparedStatement stms= conetar.prepareStatement(consulta);
               ResultSet rs =stms.executeQuery(consulta); 
+             
                if (rs.next()) 
              {
                    respuesta=true;
@@ -54,13 +57,13 @@ public class ControladorLogin
       return respuesta;     
   }
      
-      /*
+     
       public static void main(String [] arg)
       {
           ControladorLogin cl= new ControladorLogin();
-          System.out.println(cl.Login("1","jlopez","17336928-k"));
+          System.out.println(cl.Login(1,"jlopez","17336928-k"));
       } 
-*/
+
 
     
 }
