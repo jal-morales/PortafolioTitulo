@@ -53,7 +53,7 @@ public class UsserServlet extends HttpServlet {
                                //sessionCodEmpresa.setMaxInactiveInterval(3600); este paramero sirve en caso que necesitemos dar tiempo a la session.
                                
                        //redireccionaremos al inicio.jsp
-                       response.sendRedirect("./inicio.jsp"); 
+                       response.sendRedirect("./home.jsp"); 
                     }
                     else
                     {
