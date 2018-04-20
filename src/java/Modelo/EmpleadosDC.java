@@ -18,6 +18,7 @@ public class EmpleadosDC
     private String cargo;
     private String usuario;
     private String password;
+    private int codEmpresa;
 
     public EmpleadosDC(int idEmpleadosDC, String nombres, String apellidos, String rut, String cargo, String usuario, String password) {
         this.idEmpleadosDC = idEmpleadosDC;
@@ -31,6 +32,19 @@ public class EmpleadosDC
 
     public EmpleadosDC() {
     }
+
+    public EmpleadosDC(int codEmpresa) {
+        this.codEmpresa = codEmpresa;
+    }
+
+    public int getCodEmpresa() {
+        return codEmpresa;
+    }
+
+    public void setCodEmpresa(int codEmpresa) {
+        this.codEmpresa = codEmpresa;
+    }
+    
 
     public int getIdEmpleadosDC() {
         return idEmpleadosDC;
