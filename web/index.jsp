@@ -1,6 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,149 +11,128 @@
   <!-- End Css -->
 </head>
 <body>
-  <!-- Sht -->
-  <header >
-    <!--most top info -->
-    <!--<div style="height: 20px; background: #f2f9ee"></div>-->
-    <!-- End most top info -->
-    <nav class="navbar  navbar-expand-lg navbar-dark top-navbar" data-toggle="sticky-onscroll">
-      <div class="container">
-        <a class="navbar-brand" href="#"><img src="img/logo-small.png" alt="" class="img-fluid"></a>
+  <!-- Inicio -->
+  <section id="inicio">
+    <!-- Navbar -->
+    <nav class="stroke navbar navbar-expand-md navbar-dark fixed-top" data-toggle="sticky-onscroll">
+      <div class="container-fluid">
+        <a class="navbar-brand col-8 col-sm-6 col-md-4" href="#">
+          <img src="img/logo-small.png" alt="" class="img-fluid">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav pull-right">
             <li class="nav-item">
-              <a class="nav-link active" href="#">INICIO</a>
+              <a class="nav-link btn" href="#inicio">INICIO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">HABITACIONES</a>
+              <a class="nav-link btn" href="#habitaciones">HABITACIONES</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">RESTAURANT</a>
+              <a class="nav-link btn" href="#restaurant">RESTAURANT</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">GALERIA</a>
+              <a class="nav-link btn" href="#contacto">CONTACTO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">CONTACTO</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.jsp">USUARIOS</a>
+              <a class="nav-link btn" href="login.jsp">USUARIOS</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div style="height: 2px; background: #f2f9ee"></div>
-    <div style="height: 20px; background: #805b5b"></div>
-  </header>
-  <!-- end sht -->
-  <!-- Content-->
-  <section class="content">
-      <img class="img-fluid" src="img/slider-1.png" alt="" width="100%">
+    <!-- Fin Navbar -->
+    <!-- Imagen Inicio -->
+    <div class="container-fluid p-0">
+      <div id="startchange" class="parallax" data-parallax="scroll" data-image-src="img/slider-0.jpg">
+      </div>
+    </div>
+    <!-- Fin Imagen Inicio -->
+    <div class="container-fluid p-0">
+      <div style="height: 30px; background: #f7eddc"></div>
+    </div>
   </section>
-  <!-- End Content -->
-  <div style="height: 2px; background: #f2f9ee"></div>
-    <div style="height: 20px; background: #805b5b"></div>
-<br>
-<div class="container">
-  <h2 class="text-center">HABITACIONES</h2>
-  <div class="row">
-    <div class="col-sm">
-      <img src="img/oval" alt="" class="img-fluid img-hab">
-    <h3 class="text-center">Habitacion Uno</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, fugit. Aliquid delectus illo, est dolorem porro suscipit! Cumque nostrum quod veniam, natus facilis, perspiciatis ipsam error earum, ea odit voluptatibus.</p>
+  <!-- Fin Inicio -->
+  <!-- Habitaciones -->
+  <section id="habitaciones" class="hb">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="text-center tthb">HABITACIONES</h2>
+        </div>
+        <div class="col-lg-4">
+          <img src="img/oval.png" alt="" class="img-fluid imghb0">
+          <h5 class="text-center">Habitaci&oacute;n Uno</h5>
+          <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, fugit. Aliquid delectus illo, est dolorem porro suscipit! Cumque nostrum quod veniam, natus facilis, perspiciatis ipsam error earum, ea odit voluptatibus.</p>
+        </div>
+        <div class="col-lg-4">
+          <img src="img/oval2.png" alt="" class="img-fluid imghb1">
+          <h5 class="text-center">Habitaci&oacute;n Dos</h5>
+          <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex ullam beatae autem, accusamus alias voluptate asperiores, rem officia maxime, nobis adipisci unde animi praesentium quo perspiciatis! Facere expedita, reprehenderit id!</p>
+        </div>
+        <div class="col-lg-4">
+          <img src="img/oval3.png" alt="" class="img-fluid imghb2">
+          <h5 class="text-center">Habitaci&oacute;n Tres</h5>
+          <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia corporis commodi quos dolore recusandae mollitia, earum perspiciatis eos facilis, id ab, maxime velit ducimus, aperiam optio. Minus, quod. Doloribus, eum.</p>
+        </div>
+      </div>
     </div>
-    <div class="col-sm">
-      <img src="img/oval2" alt="" class="img-fluid img-hab">
-          <h3 class="text-center">Habitacion Dos</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex ullam beatae autem, accusamus alias voluptate asperiores, rem officia maxime, nobis adipisci unde animi praesentium quo perspiciatis! Facere expedita, reprehenderit id!</p>
+  </section>
+  <!-- Fin Habitaciones -->
+  <!-- Restaurant -->
+  <section id="restaurant">
+    <div class="container-fluid p-0">
+      <div style="height: 30px; background: #f7eddc"></div>
     </div>
-    <div class="col-sm">
-      <img src="img/oval3" alt="" class="img-fluid img-hab">
-          <h3 class="text-center">Habitacion Tres</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia corporis commodi quos dolore recusandae mollitia, earum perspiciatis eos facilis, id ab, maxime velit ducimus, aperiam optio. Minus, quod. Doloribus, eum.</p>
+    <div class="parallax2" data-parallax="scroll" data-image-src="img/slider-1.png">
     </div>
   </div>
-</div>
-
-
-  <!-- Foot -->
-  <section class="foot">
-   <footer class="page-footer font-small pt-4 mt-4">
-      
-          <!--Footer Links-->
-          <div class="container text-center text-md-left">
-      
-              <!-- Footer links -->
-              <div class="row text-center text-md-left mt-3 pb-3">
-      
-                  <!--First column-->
-                  <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                      <h6 class="text-uppercase mb-4 font-weight-bold">Doña Clarita</h6>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, explicabo minus expedita excepturi, provident corporis officia, est eveniet mollitia quod qui voluptatem quaerat incidunt? Harum, quas libero ea quam iusto?.</p>
-                  </div>
-                  <!--/.First column-->
-      
-                  <hr class="w-100 clearfix d-md-none">
-      
-                  <!--Second column-->
-                  <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                     
-                  </div>
-                  <!--/.Second column-->
-      
-                  <hr class="w-100 clearfix d-md-none">
-      
-                  <!--Third column-->
-                  <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                      
-                  </div>
-                  <!--/.Third column-->
-      
-                  <hr class="w-100 clearfix d-md-none">
-      
-                  <!--Fourth column-->
-                  <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                      <h6 class="text-uppercase mb-4 font-weight-bold">Contacto</h6>
-                      <p><i class="fa fa-home mr-3"></i> Alonso de Ovalle #2145</p>
-                      <p><i class="fa fa-envelope mr-3"></i> hostal@gmail.com</p>
-                      <p><i class="fa fa-phone mr-3"></i> + 56 9 56783412</p>
-                  </div>
-                  <!--/.Fourth column-->
-      
-              </div>
-              <!-- Footer links -->
-      
-              <hr>
-      
-              <div class="row py-3 d-flex align-items-center">
-      
-                  <!--Grid column-->
-                  <div class="col-md-8 col-lg-8">
-      
-                  </div>
-                  <!--Grid column-->
-      
-                  </div>
-                  <!--Grid column-->
-      
-              </div>
-      
-          </div>
-      
-      </footer>
-  </section>
-  <!-- End Foot -->
-  <!-- Scripts -->
-  <script src="js/build/jquery-3.3.1.js"></script>
-  <script src="js/build/popper.js"></script>
-  <script src="js/build/bootstrap.js"></script>
-  <script src="js/build/jquery.validate.js" type="text/javascript"></script>
-  <script src="js/build/jquery.Rut.js" type="text/javascript"></script>
-  <script src="js/functions.js"></script>
-  <!-- End Scripts -->
+  <div class="container-fluid p-0">
+    <div style="height: 30px; background: #f7eddc"></div>
+  </div>
+</section>
+<!-- Fin Restaurant -->
+<!-- Contacto -->
+<section id="contacto" class="ct">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-center tthb">CONTACTO</h2>
+      </div>
+    </div>
+  </div>
+  
+</section>
+<!-- Fin Contacto -->
+<!-- Foot -->
+<section class="foot">
+  <div class="container-fluid p-0">
+    <div style="height: 30px; background: #f7eddc"></div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <footer>
+          <p>Copyright &reg; - Hostal Doña Clarita 2018</p>
+        </footer>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Foot -->
+<!-- Scripts -->
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/bs/popper.js"></script>
+<script src="js/bs/bootstrap.js"></script>
+<script src="js/parallax.js"></script>
+<script src="js/scrollreveal.js"></script>
+<script src="js/vl/jquery.validate.js" type="text/javascript"></script>
+<script src="js/vl/jquery.Rut.js" type="text/javascript"></script>
+<script src="js/functions.js"></script>
+<script>
+</script>
+<!-- End Scripts -->
 </body>
 </html>
