@@ -7,41 +7,37 @@
     <!-- Css -->
     <link rel="stylesheet" href="css/bs/bootstrap.css">
     <link rel="stylesheet" href="css/bs/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/tp/extralayers.css">
+    <link rel="stylesheet" href="css/tp/settings.css">
+    <link rel="stylesheet" href="css/tp/tpstyle.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- End Css -->
 </head>
 <body>
-<section class="head-user">
-    <div class="container-fluid">
-        <div class="row"></div>
-        <div class="col align-self-center">
-        <a href="index.jsp"><img src="img/logo-n-small.png" alt="" class="img-fluid"></a>
-        </div>
-      </div>
-    </nav>
-    </div>
-</section>
-    <section class="login-form">
+<section id="hd">
         <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <form action="./UsserServlet" method="post" name="FormEntrar">
-                        <div class="input-group input-group-lg">
-                            <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-home"></i></span>
-                            <input type="text" class="form-control" name="txtCodEmpresa" placeholder="Cod Empresa" id="Correo" aria-describedby="sizing-addon1" required >
+            <div class="row">
+                <div class="col align-content-start">
+                    <a href="index.jsp"><img src="img/logo-n-small.png" alt="" class="img-fluid"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="log">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 ">
+                    <form action="./UsuariosServlet" method="post" name="FormEntrar">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="txtCodEmpresa" placeholder="Cod Empresa" id="codEmp" required>
                         </div>
-                        <br>
-                        <div class="input-group input-group-lg">
-                            <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input type="text" class="form-control" name="txtUsuario" placeholder="Correo" id="Correo" aria-describedby="sizing-addon1"autocomplete="off" >
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="txtEmail" placeholder="Correo" id="email" required >
                         </div>
-                        <br>
-                        <div class="input-group input-group-lg">
-                            <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" name="txtpassword" class="form-control" placeholder="******" aria-describedby="sizing-addon1"autocomplete="off" >
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="txtPass" placeholder="******" id="pass" required>
                         </div>
-                        <br>
-                        <button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" name="btnLogin" type="submit">Entrar</button><br>
+                        <button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" name="btnLogin" type="submit">Entrar</button>
                         <div class="opcioncontra text-center"><a href="olvidasteContrasena.jsp">Olvidaste tu contraseña?</a>
                         </div>
                     </form>
@@ -50,11 +46,13 @@
         </div>  
     </section>
     <!-- Scripts -->
-    <script src="js/build/jquery-3.3.1.js"></script>
-    <script src="js/build/popper.js"></script>
-    <script src="js/build/bootstrap.js"></script>
-    <script src="js/build/jquery.validate.js" type="text/javascript"></script>
-    <script src="js/build/jquery.Rut.js" type="text/javascript"></script>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/bs/popper.js"></script>
+    <script src="js/bs/bootstrap.js"></script>
+    <script src="js/tp/slider-revolution.js"></script>
+    <script src="js/tp/tools.min.js"></script>
+    <script src="js/vl/jquery.validate.js" type="text/javascript"></script>
+    <script src="js/vl/jquery.Rut.js" type="text/javascript"></script>
     <script src="js/functions.js"></script>
     <!-- End Scripts -->
 </body>
