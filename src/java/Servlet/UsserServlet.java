@@ -36,7 +36,7 @@ public class UsserServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String btnLogin=request.getParameter("btnLogin");
-        
+        // aremodificacion para ver notificaciongit 
             if (btnLogin!=null) 
             {
                 int codEmpresa=Integer.parseInt(request.getParameter("txtCodEmpresa"));
