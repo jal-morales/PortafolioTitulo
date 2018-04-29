@@ -28,7 +28,7 @@ public class ControladorLogin
             //llamamos a la clase conect           
                  Connection  conetar=con.getConnection(); 
                  Statement stms = conetar.createStatement();
-             String consulta  = "select * from LOGIN where EMPRESA_CODEMPRESA="+codEmpresa+" and USUARIO='"+usser+"' and PASSWORD='"+pass+"'";   
+             String consulta  = "select * from LOGIN where EMPRESA_IDEMPRESA="+codEmpresa+" and USUARIO='"+usser+"' and PASSWORD='"+pass+"'";   
              System.out.println(consulta);
           
              try {
