@@ -50,7 +50,12 @@ public class UsserServlet extends HttpServlet {
                         //el dato existe crearemos una session para poder manipular para los filtros por empresa;
                                HttpSession sessionCodEmpresa = request.getSession(true);                            
                                sessionCodEmpresa.setAttribute("txtCodEmpresa", request.getParameter("txtCodEmpresa"));
-                               //sessionCodEmpresa.setMaxInactiveInterval(3600); este paramero sirve en caso que necesitemos dar tiempo a la session.
+                               
+                        //session de bienvenida para correo.
+                        HttpSession sessionUsser = request.getSession(true);                            
+                        sessionUsser.setAttribute("txtUsuario", request.getParameter("txtUsuario"));
+                               
+                        //sessionCodEmpresa.setMaxInactiveInterval(3600); este paramero sirve en caso que necesitemos dar tiempo a la session.
                                
                        //redireccionaremos al inicio.jsp
                        response.sendRedirect("./home.jsp"); 
@@ -58,7 +63,7 @@ public class UsserServlet extends HttpServlet {
                     else
                     {
                         //retornar al index ya que no existe en base de datos
-                        response.sendRedirect("./index.jsp");
+                        response.sendRedirect("./login.jsp");
                         //falta enviar aviso al usuario de que no pudo acceder .
 
                     }

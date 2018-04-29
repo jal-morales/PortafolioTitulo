@@ -1,42 +1,21 @@
 <%-- 
-    Document   : home
-    Created on : 18-abr-2018, 18:09:04
+    Document   : usuarios
+    Created on : 29-abr-2018, 13:38:03
     Author     : JavierL.M
 --%>
-<%
- String usuario=(String)session.getAttribute("txtUsuario");
 
-           String empresa=(String)session.getAttribute("txtCodEmpresa");
-            int codEmpresa=Integer.parseInt(empresa);
-          
-       if (usuario==null && codEmpresa==0 ) 
-        {
-        RequestDispatcher dispatcher;    
-        dispatcher = request.getRequestDispatcher("/index.jsp"); 
-        dispatcher.forward(request, response); 
-     
-        } 
-
-%>
- 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <!-- Css -->
-  
-  <!-- End Css -->
-        <title>JSP Page</title>
+        <title>Usuarios</title>
     </head>
     <body>
-        <h1>Codigo Empresa:<%=codEmpresa%></h1><br>
-        <h1>Usuaruio: <%=usuario%></h1>
-        <h1>Vienbenido a la intranet</h1>
+        <h1>Listado de usuarios en el sistema.</h1>
+        <h2>Realizar modal para estas acciones Modificar Eliminar</h2>
         
-        
-        <!-- Inicio -->
-  <section id="home">
+        <section id="home">
     <!-- Navbar -->
     <nav class="active">
       <div class="container-fluid">
@@ -74,6 +53,23 @@
         </div>
       </div>
     </nav>
+        <table>
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Usuario</td>
+                    <td>TipoUsuario</td>
+                    <td>Acciones</td>
+                    
+                </tr>
+            </thead>
+            <tbody>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>      
+            </tbody>
+        </table>
     </body>
     
 </html>
