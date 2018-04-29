@@ -3,7 +3,28 @@
     Created on : 29-abr-2018, 13:38:03
     Author     : JavierL.M
 --%>
+<%@page import="Modelo.Login"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Controladores.ControladorLogin"%>
+<%
+    String usuario=(String)session.getAttribute("txtUsuario");
 
+           String empresa=(String)session.getAttribute("txtCodEmpresa");
+            int codEmpresa=Integer.parseInt(empresa);
+          
+       if (usuario==null && codEmpresa==0 ) 
+        {
+        RequestDispatcher dispatcher;    
+        dispatcher = request.getRequestDispatcher("/index.jsp"); 
+        dispatcher.forward(request, response); 
+     
+        } 
+
+        
+        ControladorLogin ctrlog= new ControladorLogin();
+        ArrayList<Login> listaUser=ctrlog.ListaUsuarios(codEmpresa);
+
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +33,7 @@
         <title>Usuarios</title>
     </head>
     <body>
+        <h1><%=codEmpresa%></h1>
         <h1>Listado de usuarios en el sistema.</h1>
         <h2>Realizar modal para estas acciones Modificar Eliminar</h2>
         
@@ -63,12 +85,18 @@
                     
                 </tr>
             </thead>
+           
             <tbody>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>      
+             <% for(Login lg:listaUser)
+            {
+            %>
+            <td><%=lg.getNombre()%></td>
+            <td><%=lg.getUsuaroio()%></td>
+            <td><%=lg.getTipo_usuario()%></td>
+            <td>AgregarBoton Boostrap para levantar modal para accion modificar eliminar</td>  
+            <%}%>   
             </tbody>
+            
         </table>
     </body>
     
