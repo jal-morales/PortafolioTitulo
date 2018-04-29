@@ -6,10 +6,12 @@
 package Controladores;
 
 import Conexion.ConexionBD;
+import Modelo.Login;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,7 +19,19 @@ import java.sql.Statement;
  */
 public class ControladorLogin 
 {
-  
+  //MAIN PARA PRUEBAS
+    /*
+    public static void main(String [] arg)
+      {
+          ControladorLogin cl= new ControladorLogin();
+          System.out.println(cl.ListaUsuarios(1));
+         // System.out.println(cl.Login(1,"jlopez","17336928-k"));
+      } */
+    
+    
+    
+    
+    
     //Valida si el usuario se encuentra en la base de datos
 
       public boolean Login(int codEmpresa,String usser,String pass)
@@ -58,12 +72,47 @@ public class ControladorLogin
   }
      
      
-      public static void main(String [] arg)
-      {
-          ControladorLogin cl= new ControladorLogin();
-          System.out.println(cl.Login(1,"jlopez","17336928-k"));
-      } 
+      
 
 
-    
+     public ArrayList<Login>ListaUsuarios(int codempresa) 
+    { 
+        ArrayList<Login> ListaUsuarios=new ArrayList<>();
+        try
+        {
+            ConexionBD conn = new ConexionBD();
+            Connection conexion = conn.getConnection();
+            
+            //STATEMENT PERMITE EJECUTAR CONSULTA SQL 
+            Statement stms = conexion.createStatement();
+            
+            String consulta = "select IDLOGIN,NOMBRE,USUARIO,TIPO_USUARIO from LOGIN where EMPRESA_IDEMPRESA="+codempresa+""; 
+            
+            
+            ResultSet rs =stms.executeQuery(consulta);
+            
+            while (rs.next())
+            {                
+                Login user =new Login();
+                
+               
+                user.setIdLogin(Integer.parseInt(rs.getString("idlogin")));
+                user.setNombre(rs.getString("nombre"));
+                user.setUsuaroio(rs.getString("usuario"));
+                user.setTipo_usuario(rs.getString("tipo_usuario"));
+                
+               
+                ListaUsuarios.add(user);
+
+            }
+             return ListaUsuarios;
+        }
+        catch(Exception ex)
+        {
+            
+            ex.printStackTrace();
+        }
+        return new ArrayList<>();
+   
+    }
 }
