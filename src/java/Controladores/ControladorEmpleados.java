@@ -60,7 +60,7 @@ public class ControladorEmpleados
 
     }  
                 
-        //Agregar Empleados. Listo testiado.        
+        //Agregar Empleados. Listo testiado. 100% funcionando.       
                  public void AgregarEmplados(EmpleadosDC nEmpleados)
         {
             try {
@@ -76,8 +76,7 @@ public class ControladorEmpleados
                         if (stms!=null ) 
                         {
                            stms.executeUpdate(consulta);
-                              System.out.println("Exito en el ingreso de empleados");
-                             
+  
                         }
                         else 
                         {
@@ -93,27 +92,83 @@ public class ControladorEmpleados
            
         }
                  
-  /*               
-   public static void main(String [] arg)
+     //modificar Empleados. Listo testiado. 100% funcionando.
+      public  void ModificarEmpleados(EmpleadosDC ActualiZarEmpleados)
       {
+            try {
+                  ConexionBD conn = new ConexionBD();
+                Connection conexion = conn.getConnection();
+         
+                  String consulta="UPDATE EMPLEADOS SET NOMBRES='"+ActualiZarEmpleados.getNombres()+"',APELLIDOS='"+ActualiZarEmpleados.getApellidos()+"',RUT='"+ActualiZarEmpleados.getRut()+"',CARGO='"+ActualiZarEmpleados.getCargo()+"',PASSWORD='"+ActualiZarEmpleados.getPassword()+"' where IDEMPRESADOS="+ActualiZarEmpleados.getCodEmpresa()+"";
+
+                   PreparedStatement stms= conexion.prepareStatement(consulta);
+                   
+                
+                   //llamamos al Statement que ejecutas sentencias Sql
+                        if (stms!=null ) 
+                        {
+                           stms.executeUpdate(consulta);
+                         System.out.println("Actualiacion realiada con exito");
+                         
+                        }
+                        else 
+                        {
+                            System.out.println("No se actualio El empleado.");
+                        }
+     
+            } catch (Exception e) 
+            {
+                 e.printStackTrace();
+            }
+      }
+      
+      //Metodo validador de empledos.
+      //determina si exite o no el rut que ingresemos.
+      
+      
+      public boolean ValidarExistenciaEmpleados ( String rut, int codEmpresa )
+      {
+           boolean respuesta =false;
+      try {          
+                 //llamamos a la conexion 
+            ConexionBD con = new ConexionBD();
+            //llamamos a la clase conect           
+                 Connection  conetar=con.getConnection();
+                  String consulta  = "select * from EMPLEADOS where RUT='"+rut+"' and EMPRESA_IDEMPRESA="+codEmpresa+""; 
+                  
+             PreparedStatement stms= conetar.prepareStatement(consulta);      
+           
+             ResultSet rs =stms.executeQuery(consulta);
+             if (rs.next()) 
+             {
+                   respuesta=true;
+                 return respuesta; 
+             }
+             else 
+             {
+                   return false;
+             }
+  
+      } catch (Exception e) 
+      {
+         System.out.println("Revisar Validacion de Empleados.");
+        e.printStackTrace();
+      }
+      return respuesta;
+  
+    } 
+      
+      /*
+      public static void main(String []args)
+      {
+          ControladorEmpleados d= new ControladorEmpleados();
           
-          try {
-              ControladorEmpleados cl= new ControladorEmpleados();
-          EmpleadosDC e= new EmpleadosDC();
-          e.setNombres("Juaquin Daniel");
-          e.setApellidos("Aranda Riquelme");
-          e.setRut("77777777-7");
-          e.setCargo("Adminsitrador");
-          e.setUsuario("Jaranda");
-          e.setPassword("77777777-7");
-          e.setCodEmpresa(1);
-          cl.AgregarEmplados(e);
-              System.out.println("Ingresado con exito");
-          } catch (Exception e) 
-          {
-              e.printStackTrace();
-              System.out.println("Error no se pudo insertar");
-          }    
-      }   */            
-                 
+          System.out.println(d.ValidarExistenciaEmpleados("12875563-8", 2));
+      }*/
+      
+      
 }
+                 
+             
+   
+ 
