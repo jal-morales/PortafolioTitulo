@@ -18,8 +18,8 @@ public class ControladorEmpleados
 {
     
     
-           //metodo que lista los empleados pero por empresa por lo que solicito el codigo empresa para difirenciar 
-    //cual data debo mostrar.
+           //metodo que lista los empleados pero por empresa por lo que solicito el codigo empresa para difirenciar cual data debo mostrar.
+
                  public ArrayList<EmpleadosDC> EmpleadosListar(int codEmpresa)
     { 
         ArrayList<EmpleadosDC> Empleados_lista=new ArrayList<>();
@@ -158,14 +158,38 @@ public class ControladorEmpleados
   
     } 
       
-      /*
-      public static void main(String []args)
-      {
-          ControladorEmpleados d= new ControladorEmpleados();
-          
-          System.out.println(d.ValidarExistenciaEmpleados("12875563-8", 2));
-      }*/
       
+      //eliminar Empleados.Listo testiado. 100% funcionando.
+      public  void EliminarEmpleados(int idEmpleados, int codEmpresa)
+      {
+            try {
+                  ConexionBD con = new ConexionBD();
+                  Connection conectar= con.getConnection();
+         
+                  String consulta="DELETE  FROM EMPLEADOS WHERE EMPRESA_IDEMPRESA="+codEmpresa+" and IDEMPRESADOS="+idEmpleados+"";
+                  System.out.println(consulta);
+
+                    PreparedStatement stms= conectar.prepareStatement(consulta);
+                
+                   //llamamos al Statement que ejecutas sentencias Sql
+                        if (stms!=null ) 
+                        {
+                           stms.executeUpdate(consulta);
+                              System.out.println("eliminada con exito");
+                               
+                               stms.close();
+                        }
+                        else 
+                        {
+                            System.out.println("Query no ejecutada");
+                        }
+     
+            } catch (Exception e) 
+            {
+                  System.out.println("Revisar try Elminacion de empleados.");
+                 e.printStackTrace();
+            }
+      } 
       
 }
                  
