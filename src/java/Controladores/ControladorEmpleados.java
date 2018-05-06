@@ -4,6 +4,7 @@ package Controladores;
 import Conexion.ConexionBD;
 import Modelo.EmpleadosDC;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -56,7 +57,63 @@ public class ControladorEmpleados
             ex.printStackTrace();
         }
         return new ArrayList<>();
- 
-    
-    }          
+
+    }  
+                
+        //Agregar Empleados. Listo testiado.        
+                 public void AgregarEmplados(EmpleadosDC nEmpleados)
+        {
+            try {
+                ConexionBD conn = new ConexionBD();
+             Connection conexion = conn.getConnection();
+             
+         
+                  String consulta="INSERT INTO EMPLEADOS VALUES(CNTEO.nextval,'"+nEmpleados.getNombres()+"','"+ nEmpleados.getApellidos()+"','"+nEmpleados.getRut()+"','"+nEmpleados.getCargo()+"','"+nEmpleados.getUsuario()+"','"+nEmpleados.getPassword()+"',"+nEmpleados.getCodEmpresa()+")";
+                 System.out.println(consulta); 
+                   PreparedStatement stms= conexion.prepareStatement(consulta);
+                
+                   //llamamos al Statement que ejecutas sentencias Sql
+                        if (stms!=null ) 
+                        {
+                           stms.executeUpdate(consulta);
+                              System.out.println("Exito en el ingreso de empleados");
+                             
+                        }
+                        else 
+                        {
+                            System.out.println("Query no ejecutada");
+                        }
+     
+            } catch (Exception e) 
+            {
+                  System.out.println("Revisar try Empleados");
+                 e.printStackTrace();
+            }
+            
+           
+        }
+                 
+  /*               
+   public static void main(String [] arg)
+      {
+          
+          try {
+              ControladorEmpleados cl= new ControladorEmpleados();
+          EmpleadosDC e= new EmpleadosDC();
+          e.setNombres("Juaquin Daniel");
+          e.setApellidos("Aranda Riquelme");
+          e.setRut("77777777-7");
+          e.setCargo("Adminsitrador");
+          e.setUsuario("Jaranda");
+          e.setPassword("77777777-7");
+          e.setCodEmpresa(1);
+          cl.AgregarEmplados(e);
+              System.out.println("Ingresado con exito");
+          } catch (Exception e) 
+          {
+              e.printStackTrace();
+              System.out.println("Error no se pudo insertar");
+          }    
+      }   */            
+                 
 }
