@@ -32,7 +32,7 @@
                             <input type="text" class="form-control" name="txtUsuario" placeholder="Usuario" id="email" required >
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" name="txtPassword" placeholder="******" id="pass" required>
+                            <input type="password" class="form-control" name="txtpassword" placeholder="******" id="pass" required>
                         </div>
                         <button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" name="btnLogin" type="submit">Entrar</button>
                         <div class="opcioncontra text-center"><a href="olvidasteContrasena.jsp">Olvidaste tu contraseña?</a>

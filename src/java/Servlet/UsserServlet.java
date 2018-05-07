@@ -35,7 +35,10 @@ public class UsserServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String btnLogin=request.getParameter("btnLogin");
+            
+            //Para manejas excepciones
+             try {
+                String btnLogin=request.getParameter("btnLogin");
         // aremodificacion para ver notificaciongit 
             if (btnLogin!=null) 
             {
@@ -71,8 +74,12 @@ public class UsserServlet extends HttpServlet {
                   
                 }
             }
-        
-
+            
+            } catch (Exception e) 
+            {
+                e.printStackTrace();
+                response.sendRedirect("./login.jsp");
+            }
         }
     }
     //se valida el usuario en login 
