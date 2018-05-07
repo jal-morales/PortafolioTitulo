@@ -20,19 +20,19 @@
             </div>
         </div>
     </section>
-    <section id="log">
+    <<section id="log">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 ">
-                    <form action="./UsuariosServlet" method="post" name="FormEntrar">
+                    <form action="./UsserServlet" method="post" name="FormEntrar">
                         <div class="form-group">
                             <input type="text" class="form-control" name="txtCodEmpresa" placeholder="Cod Empresa" id="codEmp" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" name="txtEmail" placeholder="Correo" id="email" required >
+                            <input type="text" class="form-control" name="txtUsuario" placeholder="Usuario" id="email" required >
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" name="txtPass" placeholder="******" id="pass" required>
+                            <input type="password" class="form-control" name="txtPassword" placeholder="******" id="pass" required>
                         </div>
                         <button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" name="btnLogin" type="submit">Entrar</button>
                         <div class="opcioncontra text-center"><a href="olvidasteContrasena.jsp">Olvidaste tu contraseña?</a>
