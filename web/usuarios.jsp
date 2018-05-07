@@ -34,7 +34,7 @@
   <!-- Css -->
   <link rel="stylesheet" href="css/bs/bootstrap.css">
   <link rel="stylesheet" href="css/bs/bootstrap-grid.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style-app.css">
   <!-- End Css -->
 </head>
 <body>
@@ -48,7 +48,6 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-
           <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav mr-5">
               <li class="nav-item dropdown">
@@ -95,14 +94,13 @@
       <!-- Fin Navbar -->
     </section>
     <!-- Fin Inicio -->
-  <!-- Contenido -->
+    <!-- Contenido -->
     <section id="mant-u">
       <div class="container">
         <div class="row">
           <div class="col">
             <div class="mant-box">
               <h1>Listado de usuarios</h1>
-
               <table class="table table-hover table-bordered">
                 <thead>
                   <tr>
@@ -121,10 +119,10 @@
                   <td><%=lg.getTipo_usuario()%></td>
                   <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ed">Editar</button>
                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#el">Eliminar</button></td>   
-                   <%}%>   
-                 </tbody>
-               </table>
-               <div class="btns">
+                    <%}%>   
+                  </tbody>
+                </table>
+                <div class="btns">
                  <a class="btn btn-light ml-3" href="nuevo-usuario.html" role="button">Nuevo Usuario</a>
                  <a class="btn btn-light ml-3" href="home.html" role="button">Volver</a>
                </div>
@@ -132,10 +130,8 @@
            </div>
          </div>
        </div>
-
      </section>
      <!-- Fin Contenido -->
-
      <!-- Scripts -->
      <script src="js/jquery-3.3.1.js"></script>
      <script src="js/bs/popper.js"></script>

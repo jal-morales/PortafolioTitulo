@@ -27,7 +27,7 @@
   <!-- Css -->
   <link rel="stylesheet" href="css/bs/bootstrap.css">
   <link rel="stylesheet" href="css/bs/bootstrap-grid.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style-app.css">
   <!-- End Css -->
   <title>Bienvenido</title>
 </head>
@@ -121,4 +121,3 @@
     <!-- End Scripts -->
   </body>
   </html>
-

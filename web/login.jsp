@@ -7,18 +7,15 @@
     <!-- Css -->
     <link rel="stylesheet" href="css/bs/bootstrap.css">
     <link rel="stylesheet" href="css/bs/bootstrap-grid.css">
-    <link rel="stylesheet" href="css/tp/extralayers.css">
-    <link rel="stylesheet" href="css/tp/settings.css">
-    <link rel="stylesheet" href="css/tp/tpstyle.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-app.css">
     <!-- End Css -->
 </head>
 <body>
-<section id="hd">
+    <section id="hd">
         <div class="container">
             <div class="row">
                 <div class="col align-content-start">
-                    <a href="index.jsp"><img src="img/logo-n-small.png" alt="" class="img-fluid"></a>
+                    <a href="index.html"><img src="img/logo-n-small.png" alt="" class="img-fluid"></a>
                 </div>
             </div>
         </div>
@@ -27,15 +24,15 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 ">
-                    <form action="./UsserServlet" method="post" name="FormEntrar">
+                    <form action="./UsuariosServlet" method="post" name="FormEntrar">
                         <div class="form-group">
                             <input type="text" class="form-control" name="txtCodEmpresa" placeholder="Cod Empresa" id="codEmp" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="txtUsuario" placeholder="Correo" id="email" required >
+                            <input type="email" class="form-control" name="txtEmail" placeholder="Correo" id="email" required >
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" name="txtpassword" placeholder="******" id="pass" required>
+                            <input type="password" class="form-control" name="txtPass" placeholder="******" id="pass" required>
                         </div>
                         <button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" name="btnLogin" type="submit">Entrar</button>
                         <div class="opcioncontra text-center"><a href="olvidasteContrasena.jsp">Olvidaste tu contraseña?</a>
