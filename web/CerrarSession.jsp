@@ -3,6 +3,6 @@
       
       session.invalidate(); 
        RequestDispatcher dispatcher;
-      dispatcher = request.getRequestDispatcher("/index.jsp"); 
+      dispatcher = request.getRequestDispatcher("/login.jsp"); 
        dispatcher.forward(request, response);
 %>
