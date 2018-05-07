@@ -43,7 +43,7 @@
     <!-- Navbar -->
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="home.html">
+        <a class="navbar-brand" href="home.jsp">
           <img src="img/logo-n-small.png" width="250"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -123,8 +123,8 @@
                   </tbody>
                 </table>
                 <div class="btns">
-                 <a class="btn btn-light ml-3" href="nuevo-usuario.html" role="button">Nuevo Usuario</a>
-                 <a class="btn btn-light ml-3" href="home.html" role="button">Volver</a>
+                 <a class="btn btn-light ml-3" href="nuevo-usuario.jsp" role="button">Nuevo Usuario</a>
+                 <a class="btn btn-light ml-3" href="home.jsp" role="button">Volver</a>
                </div>
              </div>
            </div>

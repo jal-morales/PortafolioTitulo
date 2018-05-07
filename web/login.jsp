@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row">
                 <div class="col align-content-start">
-                    <a href="index.html"><img src="img/logo-n-small.png" alt="" class="img-fluid"></a>
+                    <a href="index.jsp"><img src="img/logo-n-small.png" alt="" class="img-fluid"></a>
                 </div>
             </div>
         </div>
