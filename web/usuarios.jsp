@@ -3,6 +3,8 @@
     Created on : 29-abr-2018, 13:38:03
     Author     : JavierL.M
 --%>
+<%@page import="Modelo.EmpleadosDC"%>
+<%@page import="Controladores.ControladorEmpleados"%>
 <%@page import="Modelo.Login"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Controladores.ControladorLogin"%>
@@ -21,8 +23,9 @@
         } 
 
         
-        ControladorLogin ctrlog= new ControladorLogin();
-        ArrayList<Login> listaUser=ctrlog.ListaUsuarios(codEmpresa);
+        ControladorEmpleados ctrem= new ControladorEmpleados();
+        ArrayList<EmpleadosDC> listaEmpleados=ctrem.EmpleadosListar(codEmpresa);
+        
 
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -107,20 +110,23 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Usuario</th>
                     <th scope="col">TipoUsuario</th>
+                     <th scope="col">Rut</th>
                     <th scope="col">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                 <% for(Login lg:listaUser)
-                 {
+                 <% for(EmpleadosDC lg:listaEmpleados)
+                 { 
                   %>
-                  <td><%=lg.getNombre()%></td>
-                  <td><%=lg.getUsuaroio()%></td>
-                  <td><%=lg.getTipo_usuario()%></td>
-                  <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ed">Editar</button>
-                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#el">Eliminar</button></td>   
-                    <%}%>   
+                  <td><%=lg.getNombres()%> <%=lg.getApellidos()%></td>
+                  <td> <%=lg.getUsuario()%></td>
+                  <td><%=lg.getCargo()%></td>
+                   <td><%=lg.getRut()%></td>
+                  <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#EditarUsuarioEmpresa">Editar</button>
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#EliminarUsuarioEmpresa">Eliminar</button></td>   
+                     
                   </tbody>
+                  <%}%>  
                 </table>
                 <div class="btns">
                  <a class="btn btn-light ml-3" href="nuevo-usuario.jsp" role="button">Nuevo Usuario</a>
@@ -131,6 +137,189 @@
          </div>
        </div>
      </section>
+                  
+                  
+    <!-- Model de Edicion. -->
+<div class="modal fade" id="EditarUsuarioEmpresa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLongTitle">Modificar Empleado</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          
+          <form name="frmEditarEmpleador" method="post" action="">              
+  <table  class="table table-hover table table-condensed table table ">
+               
+                <tr> 
+                <td>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">Nombres</label>
+                        <div class="col-10">
+                            <input class="form-control " type="text" value="" name="NombreEmpleado"  id="NombreEmpleado"required="">
+                             <input class="form-control " type="text" value="" name="idEmpleado"  id="idEmpleado"required="">
+                        </div>
+                    </div>
+                </td>
+                
+                     
+           </tr>
+           <tr> 
+                <td>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">Apellidos</label>
+                        <div class="col-10">
+                            <input class="form-control " type="text" value="" name="ApellidosEmpleado" id="ApellidosEmpleado" required="">
+    
+                        </div>
+                    </div>
+                </td>
+              
+           </tr>
+           <tr> 
+                <td>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">Rut</label>
+                        <div class="col-10">
+                            <input class="form-control " type="text" value="" name="rutEmpleado" id="rutEmpleado" required="">
+    
+                        </div>
+                    </div>
+                </td>
+              
+           </tr>
+           <tr> 
+                <td>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">Cargo</label>
+                        <div class="col-10">
+                            <input class="form-control " type="text" value="" name="TipoUsuarioEmpleado" id="TipoUsuarioEmpleado" required="">
+    
+                        </div>
+                    </div>
+                </td>
+              
+           </tr>
+            <tr> 
+                <td>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">Tipo Usuario</label>
+                        <div class="col-10">
+                            <input class="form-control " type="text" value="" name="QuienRetiraEncomienda" required="">
+    
+                        </div>
+                    </div>
+                </td>
+              
+           </tr>
+
+            
+ </table>
+ <input type="submit" name="Entregar_Encomienda" value="Entregar Encomienda" class="btn btn-warning">
+                        
+                    
+                    </form>        
+      </div>
+
+    </div>
+  </div>
+                        
+</div>
+ <!-- Fin Modal --> 
+ 
+ <!-- Inicio  Modal 2--> 
+ <div class="modal fade" id="EliminarUsuarioEmpresa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLongTitle">Eliminar Empleado</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          
+          <form name="frmEditarEmpleador" method="post" action="">              
+  <table  class="table table-hover table table-condensed table table ">
+               
+                <tr> 
+                <td>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">Nombres</label>
+                        <div class="col-10">
+                            <input class="form-control disabled" type="text" value="" name="NombreEmpleado"  id="NombreEmpleado"required="">
+                             <input class="form-control disabled" type="text" value="" name="idEmpleado"  id="idEmpleado"required="">
+                        </div>
+                    </div>
+                </td>
+                
+                     
+           </tr>
+           <tr> 
+                <td>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">Apellidos</label>
+                        <div class="col-10">
+                            <input class="form-control disabled" type="text" value="" name="ApellidosEmpleado" id="ApellidosEmpleado" required="">
+    
+                        </div>
+                    </div>
+                </td>
+              
+           </tr>
+           <tr> 
+                <td>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">Rut</label>
+                        <div class="col-10">
+                            <input class="form-control disabled" type="text" value="" name="rutEmpleado" id="rutEmpleado" required="">
+    
+                        </div>
+                    </div>
+                </td>
+              
+           </tr>
+           <tr> 
+                <td>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">Cargo</label>
+                        <div class="col-10">
+                            <input class="form-control disabled" type="text" value="" name="TipoUsuarioEmpleado" id="TipoUsuarioEmpleado" required="">
+    
+                        </div>
+                    </div>
+                </td>
+              
+           </tr>
+            <tr> 
+                <td>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">Tipo Usuario</label>
+                        <div class="col-10">
+                            <input class="form-control disabled" type="text" value="" name="QuienRetiraEncomienda" required="">
+    
+                        </div>
+                    </div>
+                </td>
+              
+           </tr>
+
+            
+ </table>
+ <input type="submit" name="Entregar_Encomienda" value="Entregar Encomienda" class="btn btn-warning">
+                        
+                    
+                    </form>        
+      </div>
+
+    </div>
+  </div>
+                        
+</div> 
+ <!-- Fin Modal 2 -->
      <!-- Fin Contenido -->
      <!-- Scripts -->
      <script src="js/jquery-3.3.1.js"></script>
