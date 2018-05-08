@@ -89,7 +89,7 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Salir</a>
+                <a class="nav-link" href="CerrarSession.jsp">Salir</a>
               </li>
               <li>
                 <a class="btn btn-light ml-3" href="#" role="button">Ayuda</a>
@@ -155,7 +155,7 @@
       </div>
       <div class="modal-body">
           
-          <form name="frmEditarEmpleador" method="post" action="">              
+          <form name="frmEditarEmpleador" method="post" action="EmpleadoServlet">              
   <table  class="table table-hover table table-condensed table table ">
                
                 <tr> 
@@ -165,6 +165,7 @@
                         <div class="col-10">
                             <input class="form-control " type="text" value="" name="NombreEmpleado"  id="NombreEmpleado"required="">
                              <input class="form-control " type="text" value="" name="idEmpleado"  id="idEmpleado"required="">
+                            
                         </div>
                     </div>
                 </td>
