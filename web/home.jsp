@@ -76,7 +76,7 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Salir</a>
+                <a class="nav-link" href="CerrarSession.jsp">Salir</a>
               </li>
               <li>
                 <a class="btn btn-light ml-3" href="#" role="button">Ayuda</a>
