@@ -100,7 +100,7 @@
         <div class="row">
           <div class="col">
             <div class="mant-box">
-              <h1>Listado de usuarios</h1>
+              <h1>Listado de usuarios empresa</h1>
               <table class="table table-hover table-bordered">
                 <thead>
                   <tr>
