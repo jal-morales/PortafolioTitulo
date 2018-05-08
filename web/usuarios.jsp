@@ -39,6 +39,10 @@
   <link rel="stylesheet" href="css/bs/bootstrap-grid.css">
   <link rel="stylesheet" href="css/style-app.css">
   <!-- End Css -->
+  
+  <!-- Inicis JS -->
+  <script src="js/jquery-3.3.1.js"></script>
+  <script src="js/DataModal.js"></script>
 </head>
 <body>
   <!-- Inicio -->
@@ -122,7 +126,7 @@
                   <td> <%=lg.getUsuario()%></td>
                   <td><%=lg.getCargo()%></td>
                    <td><%=lg.getRut()%></td>
-                  <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#EditarUsuarioEmpresa">Editar</button>
+                   <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#EditarUsuarioEmpresa" onclick="DataEmpleadoMDLEdicion(<%=lg.getIdEmpleadosDC()%>,'<%=lg.getNombres()%>','<%=lg.getApellidos()%>','<%=lg.getCargo()%>','<%=lg.getRut()%>')">Editar</button>
                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#EliminarUsuarioEmpresa">Eliminar</button></td>   
                      
                   </tbody>
@@ -204,21 +208,11 @@
               
            </tr>
             <tr> 
-                <td>
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-2 col-form-label">Tipo Usuario</label>
-                        <div class="col-10">
-                            <input class="form-control " type="text" value="" name="QuienRetiraEncomienda" required="">
-    
-                        </div>
-                    </div>
-                </td>
-              
            </tr>
 
             
  </table>
- <input type="submit" name="Entregar_Encomienda" value="Entregar Encomienda" class="btn btn-warning">
+ <input type="submit" name="ModificarEmpleador" value="Modificar" class="btn btn-warning">
                         
                     
                     </form>        
