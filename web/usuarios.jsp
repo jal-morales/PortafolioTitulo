@@ -43,6 +43,45 @@
   <!-- Inicis JS -->
   <script src="js/jquery-3.3.1.js"></script>
   <script src="js/DataModal.js"></script>
+  
+  <!-- Librerias DataTable--> 
+  <link rel="stylesheet" type="text/css" href="dataTable/css/dataTables.bootstrap.min.css"/>
+  <script type="text/javascript" src="dataTable/datatables.js"></script>
+  <script type="text/javascript" src="dataTable/js/dataTables.bootstrap.min.js"></script>
+  
+  <script>           
+ $(document).ready(function() {
+    $('#TablaUsserEmpleados').DataTable({
+       "iDisplayLength":5,
+           "language": {
+
+    "sProcessing":     "Procesando...",
+    "sLengthMenu":     "Mostrar _MENU_ registros",
+    "sZeroRecords":    "No se encontraron resultados",
+    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+    "sInfoPostFix":    "",
+    "sSearch":         "Buscar:",
+    "sUrl":            "",
+    "sInfoThousands":  ",",
+    "sLoadingRecords": "Cargando...",
+    "oPaginate": {
+        "sFirst":    "Primero",
+        "sLast":     "Último",
+        "sNext":     "Siguiente",
+        "sPrevious": "Anterior"
+    },
+    "oAria": {
+        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+    }
+           }
+    });
+} );
+        </script>
+  
 </head>
 <body>
   <!-- Inicio -->
@@ -108,14 +147,15 @@
           <div class="col">
             <div class="mant-box">
               <h1>Listado de usuarios empresa</h1>
-              <table class="table table-hover table-bordered">
+              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#AgregarUsuarioEmpresa" onclick="">Agregar</button><br>
+              <table class="table table-hover table-bordered" id="TablaUsserEmpleados">
                 <thead>
                   <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Usuario</th>
-                    <th scope="col">TipoUsuario</th>
-                     <th scope="col">Rut</th>
-                    <th scope="col">Acciones</th>
+                    <td scope="col">Nombre</td>
+                    <td scope="col">Usuario</td>
+                    <td scope="col">TipoUsuario</td>
+                     <td scope="col">Rut</td>
+                    <td scope="col">Acciones</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -127,13 +167,13 @@
                   <td><%=lg.getCargo()%></td>
                    <td><%=lg.getRut()%></td>
                    <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#EditarUsuarioEmpresa" onclick="DataEmpleadoMDLEdicion(<%=lg.getIdEmpleadosDC()%>,'<%=lg.getNombres()%>','<%=lg.getApellidos()%>','<%=lg.getCargo()%>','<%=lg.getRut()%>')">Editar</button>
-                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#EliminarUsuarioEmpresa">Eliminar</button></td>   
+                       <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#EliminarUsuarioEmpresa" onclick="DataEliminarEmpleador(<%=lg.getIdEmpleadosDC()%>,'<%=lg.getNombres()%>','<%=lg.getApellidos()%>')">Eliminar</button></td>   
                      
                   </tbody>
                   <%}%>  
                 </table>
                 <div class="btns">
-                 <a class="btn btn-light ml-3" href="nuevo-usuario.jsp" role="button">Nuevo Usuario</a>
+                 
                  <a class="btn btn-light ml-3" href="home.jsp" role="button">Volver</a>
                </div>
              </div>
@@ -225,7 +265,7 @@
 </div>
  <!-- Fin Modal --> 
  
- <!-- Inicio  Modal 2--> 
+ <!-- Inicio  Modal Eliminacion--> 
  <div class="modal fade" id="EliminarUsuarioEmpresa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -237,7 +277,48 @@
       </div>
       <div class="modal-body">
           
-          <form name="frmEditarEmpleador" method="post" action="">              
+          <form name="frmEditarEmpleador" method="post" action="EmpleadoServlet">              
+  <table  class="table table-hover table table-condensed table table ">
+    
+                <tr> 
+                <td>
+                    <div class="form-group row">
+                         <input class="form-control " type="text" value="" name="idEeliminar" id="idEeliminar" required="">
+                         <input class="form-control " type="text" value="" name="NombreEeliminar" id="NombreEeliminar" required="">
+                        <input class="form-control " type="text" value="" name="ApellidoEeliminar" id="ApellidoEeliminar" required="">
+                        
+                    </div>
+                </td>
+                
+                     
+           </tr>
+     
+ </table>
+ <input type="submit" name="EliminarEmpleado" value="Eliminar Empleado" class="btn btn-warning">
+                        
+                    
+                    </form>        
+      </div>
+
+    </div>
+  </div>
+                        
+</div> 
+ <!-- Fin Modal Eliminar -->
+ 
+<!-- Modal Agregar  -->
+<div class="modal fade" id="AgregarUsuarioEmpresa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLongTitle">Agregar Empleado</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          
+          <form name="frmEditarEmpleador" method="post" action="EmpleadoServlet">              
   <table  class="table table-hover table table-condensed table table ">
                
                 <tr> 
@@ -245,8 +326,9 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-2 col-form-label">Nombres</label>
                         <div class="col-10">
-                            <input class="form-control disabled" type="text" value="" name="NombreEmpleado"  id="NombreEmpleado"required="">
-                             <input class="form-control disabled" type="text" value="" name="idEmpleado"  id="idEmpleado"required="">
+                            <input class="form-control " type="text" value="" name="NombreEmpleado"  id="NombreEmpleado"required="">
+                             <input class="form-control " type="text" value="" name="idEmpleado"  id="idEmpleado"required="">
+                            
                         </div>
                     </div>
                 </td>
@@ -258,7 +340,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-2 col-form-label">Apellidos</label>
                         <div class="col-10">
-                            <input class="form-control disabled" type="text" value="" name="ApellidosEmpleado" id="ApellidosEmpleado" required="">
+                            <input class="form-control " type="text" value="" name="ApellidosEmpleado" id="ApellidosEmpleado" required="">
     
                         </div>
                     </div>
@@ -270,7 +352,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-2 col-form-label">Rut</label>
                         <div class="col-10">
-                            <input class="form-control disabled" type="text" value="" name="rutEmpleado" id="rutEmpleado" required="">
+                            <input class="form-control " type="text" value="" name="rutEmpleado" id="rutEmpleado" required="">
     
                         </div>
                     </div>
@@ -282,7 +364,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-2 col-form-label">Cargo</label>
                         <div class="col-10">
-                            <input class="form-control disabled" type="text" value="" name="TipoUsuarioEmpleado" id="TipoUsuarioEmpleado" required="">
+                            <input class="form-control " type="text" value="" name="TipoUsuarioEmpleado" id="TipoUsuarioEmpleado" required="">
     
                         </div>
                     </div>
@@ -290,21 +372,11 @@
               
            </tr>
             <tr> 
-                <td>
-                    <div class="form-group row">
-                        <label for="example-text-input" class="col-2 col-form-label">Tipo Usuario</label>
-                        <div class="col-10">
-                            <input class="form-control disabled" type="text" value="" name="QuienRetiraEncomienda" required="">
-    
-                        </div>
-                    </div>
-                </td>
-              
            </tr>
 
             
  </table>
- <input type="submit" name="Entregar_Encomienda" value="Entregar Encomienda" class="btn btn-warning">
+ <input type="submit" name="ModificarEmpleador" value="Modificar" class="btn btn-warning">
                         
                     
                     </form>        
@@ -313,8 +385,9 @@
     </div>
   </div>
                         
-</div> 
- <!-- Fin Modal 2 -->
+</div>
+ <!-- Fin Modal Agregar -->  
+ 
      <!-- Fin Contenido -->
      <!-- Scripts -->
      <script src="js/jquery-3.3.1.js"></script>
