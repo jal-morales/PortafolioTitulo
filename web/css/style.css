@@ -1,4 +1,5 @@
-/* fonts */
+/*------------------------------------------------------------------------- */
+/*----------   Fonts   ---------- */
 @font-face {
   font-family: 'Lato-Medium';
   src: url('../font/lato/Lato-Medium.eot');
@@ -21,50 +22,74 @@
   font-weight: normal;
   font-style: normal;
 }
-
-/* body */
+/*----------   Fin Fonts   ---------- */
+/*------------------------------------------------------------------------- */
+/*----------   Html   ---------- */
 *{
- margin: 0;
- padding: 0;
+  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
 }
-
+html,
 body {
-font-family: 'Lato-Medium', sans-serif;
- width: 100%;
- height: 100%;
+  width: 100%;
+  height: 100%;
+  font-family: 'Lato-Medium', sans-serif;
+  color: #5d5d5b;
 }
-
-/* navbar menu */
-
+.all{
+  min-height: 100%;
+  width: 100%
+}
+/*----------   Fin Html   ---------- */
+/*----------   Contenido   ---------- */
+h2{
+  font-family: 'Lato-Black', sans-serif;
+  color: #825d59;
+  font-size: 2em;
+  display: block;
+  margin-bottom: 40px;
+}
+h3, h4, h5 {
+  font-family: 'Lato-Black', sans-serif;
+  color: #805b5b;
+  font-size: 2em;
+}
+.hb, .rt,  .ct {
+  padding-top: 120px;
+  padding-bottom: 20px;
+}
+/*----------   Fin Contenido   ---------- */
+/*------------------------------------------------------------------------- */
+/*------------------------------------------------------------------------- */
+/*----------   Navbar   ---------- */
 .navbar{
   margin: 0;
   border: 0;
   background: #87585a;
   transition: all 0.6s;
-}
-@media (max-width: 767px) {
-  .navbar {
-    background-color: #825d59;
-  }
+  box-shadow:0 1px 10px #464648; 
 }
 .navbar-nav .nav-item a{
   color: white !important;
   font-size: 16px;
+  text-align: center;
+  padding-right: 5px;
 }
 .navbar-nav .nav-item a:hover{
   color: #f7eddc !important;
 }
-nav ul li a,
-nav ul li a:after,
-nav ul li a:before {
+nav .und-line,
+nav .und-line:after,
+nav .und-line:before {
   transition: all .5s;
 }
-nav.stroke ul li a,
-nav.fill ul li a {
+nav.stroke .und-line,
+nav.fill .und-line {
   position: relative;
 }
-nav.stroke ul li a:after,
-nav.fill ul li a:after {
+nav.stroke .und-line:after,
+nav.fill .und-line:after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -76,23 +101,23 @@ nav.fill ul li a:after {
   background: #f7eddc;
   height: 2px;
 }
-nav.stroke ul li a:hover:after {
-  width: 100%;
+nav.stroke .und-line:hover:after {
+  width: 90%;
 }
-nav.fill ul li a {
+nav.fill .und-line {
   transition: all 2s;
 }
-nav.fill ul li a:after {
+nav.fill .und-line:after {
   text-align: left;
   content: '.';
   margin: 0;
   opacity: 0;
 }
-nav.fill ul li a:hover {
+nav.fill .und-line:hover {
   color: #fff;
   z-index: 1;
 }
-nav.fill ul li a:hover:after {
+nav.fill .und-line:hover:after {
   z-index: -10;
   animation: fill 1s forwards;
   -webkit-animation: fill 1s forwards;
@@ -102,67 +127,225 @@ nav.fill ul li a:hover:after {
 .nav-item .btn:focus {
   box-shadow:none !important;
 }
-.text-block {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-}
-
-
-/* content */
-h2.text-center {
-  font-family: 'Lato-Black', sans-serif;
-  color: #825d59;
-  font-size: 2em;
-  display: block;
-  margin-bottom: 40px;
-}
-.hb h2,h3,h4,h5 {
-  font-family: 'Lato-Black', sans-serif;
-  color: #805b5b;
-  font-size: 2em;
-}
-.hb, .ct, .rt {
-  padding-top: 120px;
-  padding-bottom: 80px;
-}
-#contacto .btn{
-  background-color: #805b5b;
-  border: none;
-}
-#contacto .btn:hover{
-  background-color: #6d4d4d;
-  border: none;
+.lgn{
+  background-color: #6b4647;
+  margin-left: 5px;
   transition: all 0.6s;
 }
-/* footer */
-.foot{
-  background-color: #789fa0;
-  color:white;
+.lgn:hover{
+  background-color: #5e3d3e;
 }
-
-.foot p{
-  padding-top: 40px;
-  padding-bottom: 20px;
-}
+/*----------   Fin Navbar   ---------- */
+/*------------------------------------------------------------------------- */
+/*----------   Header  ---------- */
 .parallax {
-  min-height: 650px;
-  background: transparent;
+  min-height: 680px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
+  background-image: url("../img/slider-0-o.png");
 }
-.parallax2 {
-  min-height: 500px;
-  background: transparent;
-  opacity: 0.5;
-  width: 100%
+.text-block {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
+.text-block h1{
+  font-size: 50px;
+  font-weight: bold;
+  font-family: 'Lato-Black', sans-serif;
+  text-shadow: 5px 5px rgb(135, 88, 90);
+  color: white;
+}
+@media (min-width: 500px) {
+ .text-block h1{
+  font-size: 80px;
+}
+}
+@media (min-width: 900px) {
+ .text-block h1{
+  font-size: 100px;
+}
+}
+.text-block .pi{
+  font-size: 1.2em;
+  color: rgb(135, 88, 90);
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.text-block .pi-b{
+  font-size: 1.2em;
+  color: white;
+  background-color: #87585a;
+  width: 300px;
+  display: block;
+  border-radius: 30px;
+  font-weight: bold;
+  border: 3px solid #f4d9c1;
+  text-decoration: none;
+  margin-top: 30px;
+  transition: all 0.6s;
+}
+.text-block .pi-b:hover{
+  background-color: #654143;
+}
+.star-list{
+  list-style: none;
+  color: white;
+  margin-bottom: 30px;
+}
+.star-list li{
+  display: inline-block;
+}
+/*----------   Fin Header  ---------- */
+/*------------------------------------------------------------------------- */
+/*----------   Habitaciones  ---------- */
 .hb img{
   margin-bottom: 40px;
 }
 .hb h5{
  margin-bottom: 40px; 
 }
-
-
+.im{
+  margin: 0 auto;
+  display: block;
+}
+.icon-list{
+  list-style: none;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 8px;
+}
+.icon-list li{
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 20px;
+  color: gray;
+}
+.icon-list hr{
+  width: 30%;
+  padding-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*----------   Fin Habitaciones  ---------- */
+/*------------------------------------------------------------------------- */
+/*----------   Testimonios  ---------- */
+.parallax-2{
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  background-image: url("../img/slider-1-o.png");
+}
+.test-block{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+.carousel-item h5{
+  color: #f4d9c1 !important;
+}
+.carousel-item h6{
+  border: 2px solid #f4d9c1;
+  width: 200px;
+  display: block;
+  margin:0 auto;
+  background-color: white;
+  border-radius: 10px;
+  color: #87585a;
+}
+.carousel ol.cti{
+  margin-top: 10px;
+}
+.carousel-item h5, p, h6{
+  margin-top: 20px;
+}
+/*----------   Fin Testimonios  ---------- */
+/*------------------------------------------------------------------------- */
+/*----------   Restaurant  ---------- */
+/*----------   Fin Restaurant  ---------- */
+/*------------------------------------------------------------------------- */
+/*----------   Contacto   ---------- */
+.ct{
+  background-image: url("../img/cto-bg.png");
+}
+.ct .btn{
+  background-color: #805b5b;
+  border: 2px solid #f4d9c1;
+}
+.ct .btn:hover{
+  background-color: #6d4d4d;
+  transition: all 0.6s;
+}
+.ct h2{
+  color: white;
+}
+/*----------   Fin Contacto   ---------- */
+/*------------------------------------------------------------------------- */
+/*----------   Footer  ---------- */
+footer { 
+  color: white;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  font-family: Lato-Medium;
+}
+footer h5{
+  font-size: 16px;
+}
+footer h6{
+  font-size: 14px;
+}
+.f1{
+ background-color: #bbcfcf;
+ color: white;
+}
+.f1 h6{
+  font-size: 24px;
+  font-weight: bold;
+}
+.f2{
+ background-color: #789fa0;
+}
+.rs-list{
+  list-style: none;
+  font-size: 40px;
+}
+@media (max-width: 991px) {
+  .rs-list{
+    list-style: none;
+    font-size: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .rs-list{
+    list-style: none;
+    font-size: 50px;
+  }
+}
+.rs-list li{
+  display: inline-block;
+  align-items: center;
+}
+.rs-list a{
+  color: #fff;
+}
+.rs-list a:hover{
+  color: #597778;
+}
+.cto-list{
+  list-style: none;
+}
+/*----------   Fin Footer  ---------- */
+/*------------------------------------------------------------------------- */
