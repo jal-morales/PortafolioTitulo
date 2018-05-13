@@ -47,7 +47,7 @@
                 <a class="nav-link und-line" href="#contacto">CONTACTO</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link lgn" href="login.html"> USUARIOS <i class="fa fa-user"></i></a> 
+                <a class="nav-link lgn" href="login.jsp"> USUARIOS <i class="fa fa-user"></i></a> 
               </li>
             </ul>
             <!--------------------------Fin Menu-------------------------->
@@ -75,7 +75,7 @@
           </ul>
           <p class=" pi text-center ">¿Buscas una hostal para tu empresa? Tenemos amplias instalaciones, habitaciones cómodas, ambiente seguro y por sobre todo muy acogedor. 
           Estás en el lugar adecuado, Doña Clarita ofrece esto y mucho más!</p>
-          <a class="pi-b mx-auto p-2" href="login.html">No esperes y reserva con nosotros.</a>
+          <a class="pi-b mx-auto p-2" href="login.jsp">No esperes y reserva con nosotros.</a>
         </div>
       </div>
     </div>
