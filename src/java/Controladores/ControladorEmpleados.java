@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class ControladorEmpleados
 
 {
-    
+     
     
            //metodo que lista los empleados pero por empresa por lo que solicito el codigo empresa para difirenciar cual data debo mostrar.
 
@@ -31,23 +31,23 @@ public class ControladorEmpleados
             //STATEMENT PERMITE EJECUTAR CONSULTA SQL 
             Statement stms = conexion.createStatement();
             
-            String consulta = "select idempresados, nombres,apellidos,rut,cargo from empleados  where empresa_idempresa="+codEmpresa+""; 
+            String consulta = "select idempresados, nombres,apellidos,rut,cargo,usuario,EMPRESA_IDEMPRESA from empleados  where empresa_idempresa="+codEmpresa+""; 
             
             
-            ResultSet rs =stms.executeQuery(consulta);
-             conn.getConnection().close();
+            ResultSet rs =stms.executeQuery(consulta);          
             while (rs.next())
             {                
                     EmpleadosDC empl= new EmpleadosDC();
 
-                 empl.setIdEmpleadosDC(Integer.parseInt(rs.getString("idempresado")));
+                 empl.setIdEmpleadosDC(Integer.parseInt(rs.getString("idempresados")));
                   
                   empl.setNombres((rs.getString("nombres")));
                   empl.setApellidos((rs.getString("apellidos")));
                   empl.setRut(rs.getString("rut"));
                   empl.setCargo(rs.getString("cargo"));
-                  empl.setCodEmpresa(Integer.parseInt(rs.getString("empresa")));
-                  
+                  empl.setUsuario(rs.getString("usuario"));
+                  empl.setCodEmpresa(Integer.parseInt(rs.getString("EMPRESA_IDEMPRESA")));
+                  Empleados_lista.add(empl);
             }
              return Empleados_lista;
         }
@@ -99,17 +99,23 @@ public class ControladorEmpleados
                   ConexionBD conn = new ConexionBD();
                 Connection conexion = conn.getConnection();
          
-                  String consulta="UPDATE EMPLEADOS SET NOMBRES='"+ActualiZarEmpleados.getNombres()+"',APELLIDOS='"+ActualiZarEmpleados.getApellidos()+"',RUT='"+ActualiZarEmpleados.getRut()+"',CARGO='"+ActualiZarEmpleados.getCargo()+"',PASSWORD='"+ActualiZarEmpleados.getPassword()+"' where IDEMPRESADOS="+ActualiZarEmpleados.getCodEmpresa()+"";
-
+                  String consulta="UPDATE EMPLEADOS SET NOMBRES='"+ActualiZarEmpleados.getNombres()+"',APELLIDOS='"+ActualiZarEmpleados.getApellidos()+"',RUT='"+ActualiZarEmpleados.getRut()+"',CARGO='"+ActualiZarEmpleados.getCargo()+"' where IDEMPRESADOS="+ActualiZarEmpleados.getIdEmpleadosDC()+"";
+                  System.out.println(consulta);
                    PreparedStatement stms= conexion.prepareStatement(consulta);
                    
                 
                    //llamamos al Statement que ejecutas sentencias Sql
                         if (stms!=null ) 
                         {
-                           stms.executeUpdate(consulta);
-                         System.out.println("Actualiacion realiada con exito");
-                         
+                            try {
+                                 stms.executeUpdate(consulta);
+                                 
+                            } catch (Exception e) 
+                            {
+                                e.printStackTrace();
+                            }
+                          
+    
                         }
                         else 
                         {
@@ -160,13 +166,13 @@ public class ControladorEmpleados
       
       
       //eliminar Empleados.Listo testiado. 100% funcionando.
-      public  void EliminarEmpleados(int idEmpleados, int codEmpresa)
+      public  void EliminarEmpleados(EmpleadosDC EliminarEmpleados)
       {
             try {
                   ConexionBD con = new ConexionBD();
                   Connection conectar= con.getConnection();
          
-                  String consulta="DELETE  FROM EMPLEADOS WHERE EMPRESA_IDEMPRESA="+codEmpresa+" and IDEMPRESADOS="+idEmpleados+"";
+                  String consulta="DELETE  FROM EMPLEADOS WHERE IDEMPRESADOS="+EliminarEmpleados.getIdEmpleadosDC()+"";
                   System.out.println(consulta);
 
                     PreparedStatement stms= conectar.prepareStatement(consulta);
@@ -189,6 +195,8 @@ public class ControladorEmpleados
                   System.out.println("Revisar try Elminacion de empleados.");
                  e.printStackTrace();
             }
+            
+       
       } 
       
 }
