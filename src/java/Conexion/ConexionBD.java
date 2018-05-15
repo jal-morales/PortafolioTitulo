@@ -5,6 +5,7 @@
  */
 package Conexion;
 
+import static com.sun.xml.internal.ws.api.message.Packet.Status.Response;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -30,6 +31,7 @@ public class ConexionBD
         return conn;
         } catch (Exception e) 
         {
+          
             return null;
         }       
     }

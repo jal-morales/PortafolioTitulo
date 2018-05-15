@@ -132,7 +132,7 @@ public class ControladorEmpleados
       //determina si exite o no el rut que ingresemos.
       
       
-      public boolean ValidarExistenciaEmpleados ( String rut, int codEmpresa )
+      public boolean ValidarExistenciaEmpleados ( String rut,int codEmpresa )
       {
            boolean respuesta =false;
       try {          
@@ -141,6 +141,7 @@ public class ControladorEmpleados
             //llamamos a la clase conect           
                  Connection  conetar=con.getConnection();
                   String consulta  = "select * from EMPLEADOS where RUT='"+rut+"' and EMPRESA_IDEMPRESA="+codEmpresa+""; 
+                  
                   
              PreparedStatement stms= conetar.prepareStatement(consulta);      
            
@@ -163,7 +164,42 @@ public class ControladorEmpleados
       return respuesta;
   
     } 
+     
       
+      
+     //Validamos a los usuarios Creados. 
+     public boolean ValidarUsuarioCreado ( String usuario,int codEmpresa )
+      {
+           boolean respuesta =false;
+      try {          
+                 //llamamos a la conexion 
+            ConexionBD con = new ConexionBD();
+            //llamamos a la clase conect           
+                 Connection  conetar=con.getConnection();
+                  String consulta  = "select * from EMPLEADOS where USUARIO='"+usuario+"' and EMPRESA_IDEMPRESA="+codEmpresa+""; 
+                  System.out.println(consulta);
+                  
+             PreparedStatement stms= conetar.prepareStatement(consulta);      
+           
+             ResultSet rs =stms.executeQuery(consulta);
+             if (rs.next()) 
+             {
+                   respuesta=true;
+                 return respuesta; 
+             }
+             else 
+             {
+                   return false;
+             }
+  
+      } catch (Exception e) 
+      {
+         System.out.println("Revisar Validacion de Usuarios.");
+        e.printStackTrace();
+      }
+      return respuesta;
+  
+    }  
       
       //eliminar Empleados.Listo testiado. 100% funcionando.
       public  void EliminarEmpleados(EmpleadosDC EliminarEmpleados)
@@ -195,11 +231,14 @@ public class ControladorEmpleados
                   System.out.println("Revisar try Elminacion de empleados.");
                  e.printStackTrace();
             }
-            
-       
+     
       } 
       
-}
+       
+      
+}     
+      
+
                  
              
    

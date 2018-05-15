@@ -35,7 +35,7 @@
                             <input type="password" class="form-control" name="txtpassword" placeholder="******" id="pass" required>
                         </div>
                         <button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" name="btnLogin" type="submit">Entrar</button>
-                        <div class="opcioncontra text-center"><a href="olvidasteContrasena.jsp">Olvidaste tu contraseña?</a>
+                        <div class="opcioncontra text-center"><a href="RecuperarContrasena.jsp">Olvidaste tu contraseña?</a>
                         </div>
                     </form>
                 </div>

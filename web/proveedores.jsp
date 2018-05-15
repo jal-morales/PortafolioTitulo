@@ -3,11 +3,10 @@
     Created on : 29-abr-2018, 13:38:03
     Author     : JavierL.M
 --%>
-<%@page import="Modelo.EmpleadosDC"%>
-<%@page import="Controladores.ControladorEmpleados"%>
-<%@page import="Modelo.Login"%>
+
+<%@page import="Modelo.Proveedores"%>
+<%@page import="Controladores.ControladorProveedores"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Controladores.ControladorLogin"%>
 <%
     String usuario=(String)session.getAttribute("txtUsuario");
 
@@ -23,8 +22,8 @@
         } 
 
         
-        ControladorEmpleados ctrem= new ControladorEmpleados();
-        ArrayList<EmpleadosDC> listaEmpleados=ctrem.EmpleadosListar(codEmpresa);
+        ControladorProveedores ctrem= new ControladorProveedores();
+        ArrayList<Proveedores> listaproveedores=ctrem.ProveedoresListar(codEmpresa);
         
 
 %>
@@ -154,7 +153,7 @@
           <div class="col">
             <div class="mant-box">
               <h1>Listado Proveedores</h1>
-              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#AgregarUsuarioEmpresa" onclick="">Agregar</button><br>
+              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#  " onclick="">Agregar</button><br>
               <table class="table table-hover table-bordered" id="TablaUsserEmpleados">
                 <thead>
                   <tr>
@@ -165,17 +164,17 @@
                     <td scope="col">Acciones</td>
                   </tr>
                 </thead>
+                
                 <tbody>
-                 <% for(EmpleadosDC lg:listaEmpleados)
+                 <% for(Proveedores lg:listaproveedores)
                  { 
                   %>
-                  <td><%=lg.getNombres()%> <%=lg.getApellidos()%></td>
-                  <td> <%=lg.getUsuario()%></td>
-                  <td><%=lg.getCargo()%></td>
-                   <td><%=lg.getRut()%></td>
-                   <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#">Editar</button>
-                       <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#" onclick="DataEliminarEmpleador(<%=lg.getIdEmpleadosDC()%>,'<%=lg.getNombres()%>','<%=lg.getApellidos()%>')">Eliminar</button>
-                       <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#" onclick="DataEliminarEmpleador(<%=lg.getIdEmpleadosDC()%>,'<%=lg.getNombres()%>','<%=lg.getApellidos()%>')">Ver Pedidos</button></td>   
+                  <td><%=lg.getNombre()%></td>
+                  <td> <%=lg.getRut()%></td>
+                  <td><%=lg.getRubro()%></td>
+                   <td><%=lg.getNumeroTelefonico()%></td>
+                   <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#">Agregar Pedidos</button>   
+                       <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#" >Ver Pedidos</button></td>   
                      
                   </tbody>
                   <%}%>  

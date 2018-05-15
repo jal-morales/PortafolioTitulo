@@ -15,14 +15,15 @@ public class Proveedores
     private String nombre;
     private String rut;
     private String direccion;
-    private int numeroTelefonico;
+    private String numeroTelefonico;
     private String correo;
     private String rubro;
+    private int codEmpresa;
 
     public Proveedores() {
     }
 
-    public Proveedores(int idProveedores, String nombre, String rut, String direccion, int numeroTelefonico, String correo, String rubro) {
+    public Proveedores(int idProveedores, String nombre, String rut, String direccion, String numeroTelefonico, String correo, String rubro) {
         this.idProveedores = idProveedores;
         this.nombre = nombre;
         this.rut = rut;
@@ -31,6 +32,15 @@ public class Proveedores
         this.correo = correo;
         this.rubro = rubro;
     }
+
+    public int getCodEmpresa() {
+        return codEmpresa;
+    }
+
+    public void setCodEmpresa(int codEmpresa) {
+        this.codEmpresa = codEmpresa;
+    }
+    
 
     public int getIdProveedores() {
         return idProveedores;
@@ -64,11 +74,11 @@ public class Proveedores
         this.direccion = direccion;
     }
 
-    public int getNumeroTelefonico() {
+    public String getNumeroTelefonico() {
         return numeroTelefonico;
     }
 
-    public void setNumeroTelefonico(int numeroTelefonico) {
+    public void setNumeroTelefonico(String numeroTelefonico) {
         this.numeroTelefonico = numeroTelefonico;
     }
 

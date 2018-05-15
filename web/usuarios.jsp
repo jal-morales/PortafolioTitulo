@@ -44,46 +44,54 @@
   <script src="js/jquery-3.3.1.js"></script>
   <script src="js/DataModal.js"></script>
   
-  <!-- Librerias DataTable--> 
-  <link rel="stylesheet" type="text/css" href="dataTable/css/dataTables.bootstrap.min.css"/>
-  <script type="text/javascript" src="dataTable/datatables.js"></script>
-  <script type="text/javascript" src="dataTable/js/dataTables.bootstrap.min.js"></script>
   
-  <script>           
- $(document).ready(function() {
-    $('#TablaUsserEmpleados').DataTable({
-       "iDisplayLength":5,
-           "language": {
-
-    "sProcessing":     "Procesando...",
-    "sLengthMenu":     "Mostrar _MENU_ registros",
-    "sZeroRecords":    "No se encontraron resultados",
-    "sEmptyTable":     "Ningún dato disponible en esta tabla",
-    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-    "sInfoPostFix":    "",
-    "sSearch":         "Buscar:",
-    "sUrl":            "",
-    "sInfoThousands":  ",",
-    "sLoadingRecords": "Cargando...",
-    "oPaginate": {
-        "sFirst":    "Primero",
-        "sLast":     "Último",
-        "sNext":     "Siguiente",
-        "sPrevious": "Anterior"
-    },
-    "oAria": {
-        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-    }
-           }
-    });
-} );
-        </script>
   
+   <!-- Librerias Alertify--> 
+   <link rel="stylesheet" type="text/css" href="Alertify/css/alertify.css">
+   <link rel="stylesheet" type="text/css" href="Alertify/css/themes/default.css">
+   <script src="Alertify/alertify.min.js"></script> 
+ 
 </head>
 <body>
+    <!--Mensaje De alerta satifactorio-->
+   
+    <%
+      
+       String msg = (String)session.getAttribute("mensaje");
+       if (msg!=null) 
+       {%>
+                   
+     <button type="button" class="close" data-dismiss="alert">&times;</button>
+           <script>
+             
+              alertify.set('notifier','position', 'top-right');
+              alertify.success('<%=msg%>');
+ 
+          </script>            
+      <%
+       
+     session.setAttribute("mensaje",null);
+ }%>
+      
+  <!--Mensaje De alerta Error-->
+      <%
+       
+       String msgErr = (String)session.getAttribute("mensajeError");
+     
+       if (msgErr!=null) 
+       {%>
+                   
+         <script>
+             
+              alertify.set('notifier','position', 'top-right');
+              alertify.error('<%=msgErr%>');
+               
+             
+          </script>        
+      <% 
+      
+      session.setAttribute("mensajeError",null); 
+ }%>       
   <!-- Inicio -->
   <section id="inicio">
     <!-- Navbar -->
@@ -101,9 +109,9 @@
                   Usuarios
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="usuarios.html">Clientes</a>
-                  <a class="dropdown-item" href="usuarios.html">Empleados</a>
-                  <a class="dropdown-item" href="usuarios.html">Administradores</a>
+                   <a class="dropdown-item" href="clientes.jsp">Clientes</a>
+                  <a class="dropdown-item" href="usuarios.jsp">Empleados</a>
+                  <a class="dropdown-item" href="proveedores.jsp">proveedores</a>
                 </div>
               </li>
               <li class="nav-item">
@@ -204,7 +212,7 @@
                         <label for="example-text-input" class="col-2 col-form-label">Nombres</label>
                         <div class="col-10">
                             <input class="form-control " type="text" value="" name="NombreEmpleado"  id="NombreEmpleado"required="">
-                             <input class="form-control " type="text" value="" name="idEmpleado"  id="idEmpleado"required="">
+                            <input class="form-control " type="text" value="" name="idEmpleado"  id="idEmpleado" hidden="">
                             
                         </div>
                     </div>
@@ -241,8 +249,12 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-2 col-form-label">Cargo</label>
                         <div class="col-10">
-                            <input class="form-control " type="text" value="" name="TipoUsuarioEmpleado" id="TipoUsuarioEmpleado" required="">
-    
+                             <select class="form-control" required="" name="TipoUsuarioEmpleado" id="TipoUsuarioEmpleado">
+                                <option value="">Seleccione</option>
+                                <option value="Administrador">Administrador</option>
+                                 <option value="Recepcionista">Recepcionista</option>
+                            </select>
+                            
                         </div>
                     </div>
                 </td>
@@ -283,9 +295,9 @@
                 <tr> 
                 <td>
                     <div class="form-group row">
-                         <input class="form-control " type="text" value="" name="idEeliminar" id="idEeliminar" required="">
-                         <input class="form-control " type="text" value="" name="NombreEeliminar" id="NombreEeliminar" required="">
-                        <input class="form-control " type="text" value="" name="ApellidoEeliminar" id="ApellidoEeliminar" required="">
+                        <input class="form-control " type="text" value="" name="idEeliminar" id="idEeliminar" hidden="">
+                        <input class="form-control " type="text" value="" name="NombreEeliminar" id="NombreEeliminar" readonly="">
+                        <input class="form-control " type="text" value="" name="ApellidoEeliminar" id="ApellidoEeliminar" readonly="">
                         
                     </div>
                 </td>
@@ -326,9 +338,8 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-2 col-form-label">Nombres</label>
                         <div class="col-10">
-                            <input class="form-control " type="text" value="" name="NombreEmpleado"  id="NombreEmpleado"required="">
-                             <input class="form-control " type="text" value="" name="idEmpleado"  id="idEmpleado"required="">
-                            
+                            <input class="form-control " type="text" value="" name="ANombreEmpleado"  id="NombreEmpleado"required="">
+                            <input  type="text" value="<%=codEmpresa%>" name="AcodEmpresa"  id="CodEmpresa" hidden="">
                         </div>
                     </div>
                 </td>
@@ -352,7 +363,7 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-2 col-form-label">Rut</label>
                         <div class="col-10">
-                            <input class="form-control " type="text" value="" name="rutEmpleado" id="rutEmpleado" required="">
+                            <input class="form-control " type="text" value="" name="ArutEmpleado" id="ArutEmpleado" required="">
     
                         </div>
                     </div>
@@ -364,7 +375,24 @@
                     <div class="form-group row">
                         <label for="example-text-input" class="col-2 col-form-label">Cargo</label>
                         <div class="col-10">
-                            <input class="form-control " type="text" value="" name="TipoUsuarioEmpleado" id="TipoUsuarioEmpleado" required="">
+                            <select class="form-control" required="" name="ATipoCargo">
+                                <option value="">Seleccione</option>
+                                <option value="Administrador">Administrador</option>
+                                 <option value="Recepcionista">Recepcionista</option>
+                            </select>
+                            
+    
+                        </div>
+                    </div>
+                </td>
+              
+           </tr>
+            <tr> 
+                <td>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">usuario</label>
+                        <div class="col-10">
+                            <input class="form-control " type="text" value="" name="ATipoUsuarioEmpleado" id="TipoUsuarioEmpleado" required="">
     
                         </div>
                     </div>
@@ -376,7 +404,7 @@
 
             
  </table>
- <input type="submit" name="ModificarEmpleador" value="Modificar" class="btn btn-warning">
+ <input type="submit" name="AgregarEmpleado" value="Agregar" class="btn btn-warning">
                         
                     
                     </form>        

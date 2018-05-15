@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import jdk.nashorn.internal.ir.BreakNode;
 
 /**
  *
@@ -39,13 +40,65 @@ public class EmpleadoServlet extends HttpServlet {
             //botones de accion
             String modificar= request.getParameter("ModificarEmpleador");
             String eliminar= request.getParameter("EliminarEmpleado");
-            String agregar=request.getParameter("");
+            String agregar=request.getParameter("AgregarEmpleado");
             
             
             //Controlar caidas del sistema.
             try {
-                    if (modificar!=null) 
+                    
+                    if (agregar!=null) 
+                     {
+                         String Anombre= request.getParameter("ANombreEmpleado");
+                        String AapellidE=request.getParameter("ApellidosEmpleado");
+                        String AcargoE=request.getParameter("ATipoCargo");
+                        String ArutE= request.getParameter("ArutEmpleado"); 
+                        String Ausuarios= request.getParameter("ATipoUsuarioEmpleado");
+                        int codEmpresa=Integer.parseInt(request.getParameter("AcodEmpresa"));
+                        
+                        if (ValidarRut(ArutE,codEmpresa)!=true  && ValidarUsuario(Ausuarios, codEmpresa)!=true) 
+                        {
+
+                               AgregarEmpleados(Anombre, AapellidE, ArutE, AcargoE, Ausuarios, ArutE, codEmpresa);
+                               response.sendRedirect("./usuarios.jsp"); 
+                               request.getSession().setAttribute("mensaje","Empleado creado.");
+                                
+                                
+
+                        }
+                        else
+                            {
+                                response.sendRedirect("./usuarios.jsp");
+                                request.getSession().setAttribute("mensajeError","Usuario o rut ya existe.");
+                            }
+                        
+                    }
+                    
+                    
+                  //Eliminar 
+                  
+                    else if (eliminar!=null) 
+                {
+                    
+                    try {
+                        int idE=Integer.parseInt(request.getParameter("idEeliminar"));     
+                     EliminarEmpleado(idE);
+                     response.sendRedirect("./usuarios.jsp");
+                     request.getSession().setAttribute("mensaje","Empleado Eliminado.");
+                    } catch (Exception e) 
                     {
+                        response.sendRedirect("./usuarios.jsp");
+                       request.getSession().setAttribute("mensajeError","Error de Eliminado.");
+                    }
+                    
+                     
+
+                }
+                
+              //modificacion 
+              else if (modificar!=null) 
+                {
+                    
+                    try {
                         int idE=Integer.parseInt(request.getParameter("idEmpleado"));
                         String nombreE= request.getParameter("NombreEmpleado");
                         String apellidE=request.getParameter("ApellidosEmpleado");
@@ -53,26 +106,26 @@ public class EmpleadoServlet extends HttpServlet {
                         String rutE= request.getParameter("rutEmpleado");
                         
                         
-                            ModificarEmpleados(idE, nombreE, apellidE, rutE, cargoE);
-                            response.sendRedirect("./usuarios.jsp");
-                       
                         
-                    }
-                    else if (eliminar!=null) 
+                          ModificarEmpleados(idE, nombreE, apellidE, rutE, cargoE);
+                          response.sendRedirect("./usuarios.jsp");
+                          request.getSession().setAttribute("mensaje","Empleado Modificado.");
+                    } catch (Exception e) 
                     {
-                            int idE=Integer.parseInt(request.getParameter("idEeliminar"));
-                            
-                            
-                            EliminarEmpleado(idE);
-                            response.sendRedirect("./usuarios.jsp");
+                        response.sendRedirect("./usuarios.jsp");
+                        request.getSession().setAttribute("mensajeError","Error Modificacion.");
                     }
-                    
-                    
+                        
 
-               } catch (Exception e) 
-            {
-                e.printStackTrace();
-            }
+                }
+                    
+            }catch (Exception e) 
+             {
+                 e.printStackTrace();
+                 response.sendRedirect("./usuarios.jsp");
+                 request.getSession().setAttribute("mensajeError","Error servidor.");
+              
+             }
             
         }
       
@@ -97,6 +150,32 @@ public class EmpleadoServlet extends HttpServlet {
         EmpleadosDC e= new EmpleadosDC();
         e.setIdEmpleadosDC(id);
         ctrEm.EliminarEmpleados(e);
+    }
+    
+    
+    public void AgregarEmpleados(String nombre, String apellidos, String rut, String cargo,String usuario,String password, int codEmpresa)
+    {
+        ControladorEmpleados ctrEm= new ControladorEmpleados();
+        EmpleadosDC e= new EmpleadosDC();
+        e.setNombres(nombre);
+        e.setApellidos(apellidos);
+        e.setRut(rut);
+        e.setCargo(cargo);
+        e.setUsuario(usuario);
+        e.setPassword(password);
+        e.setCodEmpresa(codEmpresa);
+        ctrEm.AgregarEmplados(e);
+    }
+    
+    public boolean ValidarRut(String rut,int codEmpresa)
+    {
+        ControladorEmpleados ctrEm= new ControladorEmpleados();
+        return ctrEm.ValidarExistenciaEmpleados(rut,codEmpresa);
+    }
+     public boolean ValidarUsuario(String usser,int codEmpresa)
+    {
+        ControladorEmpleados ctrEm= new ControladorEmpleados();
+        return ctrEm.ValidarExistenciaEmpleados(usser,codEmpresa);
     }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

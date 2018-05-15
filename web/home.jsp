@@ -49,9 +49,9 @@
                   Usuarios
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="usuarios.jsp">Clientes</a>
+                  <a class="dropdown-item" href="clientes.jsp">Clientes</a>
                   <a class="dropdown-item" href="usuarios.jsp">Empleados</a>
-                  <a class="dropdown-item" href="usuarios.jsp">Administradores</a>
+                  <a class="dropdown-item" href="proveedores.jsp">proveedores</a>
                 </div>
               </li>
               <li class="nav-item">
