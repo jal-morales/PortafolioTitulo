@@ -5,6 +5,12 @@
  */
 package Controladores;
 
+import Conexion.ConexionBD;
+import Modelo.Login;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 import javax.mail.Message;
@@ -19,6 +25,37 @@ import javax.mail.internet.MimeMessage;
  */
 public class ControladorRecuperarClave 
 {
+    public ArrayList<Login> ListaRecuperarClave(int codEmpresa,String correo)
+    { 
+        ArrayList<Login> login_lista=new ArrayList<>();
+        try
+        {
+            ConexionBD conn = new ConexionBD();
+            Connection conexion = conn.getConnection();
+            
+            //STATEMENT PERMITE EJECUTAR CONSULTA SQL 
+            Statement stms = conexion.createStatement();
+            
+            String consulta = "select idlogin, nombre,usuario,EMPRESA_IDEMPRESA from empleados  where empresa_idempresa="+codEmpresa+""; 
+            
+            
+            ResultSet rs =stms.executeQuery(consulta);          
+            while (rs.next())
+            {                
+                    Login lg= new Login();
+
+                 
+            }
+             return login_lista;
+        }
+        catch(Exception ex)
+        {
+            
+            ex.printStackTrace();
+        }
+        return new ArrayList<>();
+
+    }  
     
     
     public void CorreRecuperarClave(String codEmpresa,String dirijidoA,String RetiradoPor,String correo)
@@ -74,4 +111,6 @@ public class ControladorRecuperarClave
                  
        
        }
+    
+    
 }
