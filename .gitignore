@@ -1,9 +1,7 @@
 
 .DS_Store
-
-
-nbproject/
 nbproject/private/
+/nbproject/private/private.properties
 build/
 nbbuild/
 dist/
@@ -12,3 +10,4 @@ nbactions.xml
 nb-configuration.xml
 
 
+/nbproject/project.properties
