@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/bs/bootstrap-grid.css">
     <link rel="stylesheet" href="css/style-app.css">
     <!-- End Css -->
+     <link rel="icon" type="image/png" href="img/c-favicon.png">
 </head>
 <body>
     <section id="hd">
@@ -46,8 +47,6 @@
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bs/popper.js"></script>
     <script src="js/bs/bootstrap.js"></script>
-    <script src="js/tp/slider-revolution.js"></script>
-    <script src="js/tp/tools.min.js"></script>
     <script src="js/vl/jquery.validate.js" type="text/javascript"></script>
     <script src="js/vl/jquery.Rut.js" type="text/javascript"></script>
     <script src="js/functions.js"></script>
