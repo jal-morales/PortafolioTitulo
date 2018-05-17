@@ -31,7 +31,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="clientes.jsp">Clientes</a>
                   <a class="dropdown-item" href="empleados.jsp">Empleados</a>
-                  <a class="dropdown-item" href="proveedores.jsp">Empleados</a>
+                  <a class="dropdown-item" href="proveedores.jsp">Proveedores</a>
                 </div>
               </li>
               <li class="nav-item">
