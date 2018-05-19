@@ -174,7 +174,7 @@
                   <td><%=lg.getRubro()%></td>
                    <td><%=lg.getNumeroTelefonico()%></td>
                    <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#">Agregar Pedidos</button>   
-                       <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#" ><a href="verOrdenPedido.jsp">Ver Pedidos</a></button></td>   
+                       <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#" >Ver Pedidos</button></td>   
                      
                   </tbody>
                   <%}%>  
