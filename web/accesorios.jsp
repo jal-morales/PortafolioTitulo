@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Clientes</title>
+  <title>Accesorios</title>
   <!-- Css -->
   <link rel="stylesheet" href="css/bs/bootstrap.css">
   <link rel="stylesheet" href="css/bs/bootstrap-grid.css">
@@ -52,7 +52,7 @@
                   Reportes
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="reportes.jsp">Usuarios</a>  
+                  <a class="dropdown-item" href="reportes.jsp">Usuarios</a>
                   <a class="dropdown-item" href="estadisticas.jsp">Estadísticas</a>
                   <a class="dropdown-item" href="facturas.jsp">Facturas</a>
                 </div>
@@ -70,40 +70,38 @@
       <!-- Fin Navbar -->
     </section>
     <!-- Fin Inicio -->
-    <!-- Contenido -->
+     <!-- Contenido -->
     <section id="mant-u">
       <div class="container">
         <div class="row">
           <div class="col">
             <div class="mant-box">
-              <h1>Clientes</h1>
+              <h1>Accesorios</h1>
               <table class="table table-hover table-bordered">
                 <thead>
                   <tr>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Empresa</th>
-                    <th scope="col">Rut Empresa</th>
+                    <th scope="col">Cantidad</th>
                     <th scope="col">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   <td></td>
                   <td></td>
-                  <td></td>
                   <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ed">Editar</button>
-                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#el">Eliminar</button></td>  
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#el">Eliminar</button></td> 
                   </tbody>
                 </table>
                 <div class="btns">
-                  <a class="btn btn-light ml-3" href="nuevo-usuario.html" role="button">Nuevo Cliente</a>
+                 <a class="btn btn-light ml-3" href="nuevo-usuario.html" role="button">Nuevo Accesorio</a>
                   <a class="btn btn-light ml-3" href="home.jsp" role="button">Volver</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Fin Contenido -->
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </section>
+     <!-- Fin Contenido -->
       <!-- Scripts -->
       <script src="js/jquery-3.3.1.js"></script>
       <script src="js/bs/popper.js"></script>
