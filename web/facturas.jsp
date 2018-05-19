@@ -51,6 +51,7 @@
                   Reportes
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="reportes.jsp">Usuarios</a>  
                   <a class="dropdown-item" href="estadisticas.jsp">Estadísticas</a>
                   <a class="dropdown-item" href="facturas.jsp">Facturas</a>
                 </div>
@@ -68,19 +69,47 @@
       <!-- Fin Navbar -->
     </section>
     <!-- Fin Inicio -->
-     <!-- Contenido -->
-    <section id="a-hab">
+    <!-- Contenido -->
+    <section id="rep-a" class="mt-5">
       <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class="hab-box">
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Fin Contenido -->
+        <form action="" method="post">
+         <div class="form-group row">
+          <label class="col-3 col-form-label">Ingrese Nº de Orden o Rut Cliente</label>
+          <div class="col-4">
+           <input type="text" class="form-control">
+         </div>
+         <div>
+           <button class="btn-light">Buscar</button>
+         </div>
+       </div>
+       <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Rut Emp</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Total</th>
+            <th scope="col">Seleccione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><input class="" type="radio" name="" id="" value="option1"></td> 
+          </tr>
+        </tbody>
+      </table>
+      <div class="btns">
+       <a class="btn btn-light ml-3" href="nuevo-usuario.html" role="button">Nuevo Accesorio</a>
+       <a class="btn btn-light ml-3" href="home.html" role="button">Volver</a>
+     </div>
+   </form>
+ </div>
+</section>
+<!-- Fin Contenido -->
       <!-- Scripts -->
       <script src="js/jquery-3.3.1.js"></script>
       <script src="js/bs/popper.js"></script>

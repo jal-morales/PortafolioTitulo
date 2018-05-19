@@ -52,6 +52,7 @@
                   Reportes
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="reportes.jsp">Usuarios</a>  
                   <a class="dropdown-item" href="estadisticas.jsp">Estadísticas</a>
                   <a class="dropdown-item" href="facturas.jsp">Facturas</a>
                 </div>
