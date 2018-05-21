@@ -17,7 +17,7 @@
     <!-- Navbar -->
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="home.jsp">
+       <a class="navbar-brand" href="home.jsp">
           <img src="img/logo-n-small.png" width="250"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -30,8 +30,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="clientes.jsp">Clientes</a>
-                  <a class="dropdown-item" href="usuarios.jsp">Empleados</a>
-                  <a class="dropdown-item" href="proveedores.jsp">Proveedores</a>
+                  <a class="dropdown-item" href="empleados.jsp">Empleados</a>
+                  <a class="dropdown-item" href="proveedores.jsp">Empleados</a>
                 </div>
               </li>
               <li class="nav-item">
@@ -42,8 +42,9 @@
                   Servicios
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="serviciosComedor.jsp">Comedor</a>
-                  <a class="dropdown-item" href="accesorios.jsp">Accesorios</a>
+                  <a class="dropdown-item" href="clientes.jsp">Clientes</a>
+                  <a class="dropdown-item" href="empleados.jsp">Empleados</a>
+                  <a class="dropdown-item" href="proveedores.jsp">Proveedores</a>
                 </div>
               </li>
               <li class="nav-item dropdown">
@@ -68,27 +69,52 @@
       <!-- Fin Navbar -->
     </section>
     <!-- Fin Inicio -->
-     <!-- Contenido -->
-    <section id="a-hab">
+    <!-- Contenido -->
+    <section id="mant-u">
       <div class="container">
         <div class="row">
           <div class="col">
-            <div class="hab-box">
-
+            <div class="mant-box">
+              <h1>Habitaciones</h1>
+              <table class="table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Nº</th>
+                    <th scope="col">Piso</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Disponibilidad</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ed">Editar</button>
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#el">Eliminar</button></td>   
+                 
+                  </tbody>
+                </table>
+                <div class="btns">
+                  <a class="btn btn-light ml-3" href="nuevo-usuario.html" role="button">Nueva Habitación</a>
+                  <a class="btn btn-light ml-3" href="home.jsp" role="button">Volver</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Fin Contenido -->
-      <!-- Scripts -->
-      <script src="js/jquery-3.3.1.js"></script>
-      <script src="js/bs/popper.js"></script>
-      <script src="js/bs/bootstrap.js"></script>
-      <script src="js/vl/jquery.validate.js" type="text/javascript"></script>
-      <script src="js/vl/jquery.Rut.js" type="text/javascript"></script>
-      <!-- End Scripts -->
-    </body>
-    </html>
-
-
+      </section>
+      <!-- Fin Contenido -->
+    <!-- Scripts -->
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/bs/popper.js"></script>
+    <script src="js/bs/bootstrap.js"></script>
+    <script src="js/vl/jquery.validate.js" type="text/javascript"></script>
+    <script src="js/vl/jquery.Rut.js" type="text/javascript"></script>
+    <!-- End Scripts -->
+  </body>
+  </html>

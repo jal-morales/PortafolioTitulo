@@ -1,28 +1,3 @@
-<%@page import="Modelo.EmpleadosDC"%>
-<%@page import="Controladores.ControladorEmpleados"%>
-<%@page import="Modelo.Login"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="Controladores.ControladorLogin"%>
-<%
-    String usuario=(String)session.getAttribute("txtUsuario");
-
-           String empresa=(String)session.getAttribute("txtCodEmpresa");
-            int codEmpresa=Integer.parseInt(empresa);
-          
-       if (usuario==null && codEmpresa==0 ) 
-        {
-        RequestDispatcher dispatcher;    
-        dispatcher = request.getRequestDispatcher("/index.jsp"); 
-        dispatcher.forward(request, response); 
-     
-        } 
-
-        
-        ControladorEmpleados ctrem= new ControladorEmpleados();
-        ArrayList<EmpleadosDC> listaEmpleados=ctrem.EmpleadosListar(codEmpresa);
-        
-
-%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -42,7 +17,7 @@
     <!-- Navbar -->
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="home.jsp">
+       <a class="navbar-brand" href="home.jsp">
           <img src="img/logo-n-small.png" width="250"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -55,8 +30,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="clientes.jsp">Clientes</a>
-                  <a class="dropdown-item" href="usuarios.jsp">Empleados</a>
-                  <a class="dropdown-item" href="proveedores.jsp">Proveedores</a>
+                  <a class="dropdown-item" href="empleados.jsp">Empleados</a>
+                  <a class="dropdown-item" href="proveedores.jsp">Empleados</a>
                 </div>
               </li>
               <li class="nav-item">
@@ -67,8 +42,9 @@
                   Servicios
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="serviciosComedor.jsp">Comedor</a>
-                  <a class="dropdown-item" href="accesorios.jsp">Accesorios</a>
+                  <a class="dropdown-item" href="clientes.jsp">Clientes</a>
+                  <a class="dropdown-item" href="empleados.jsp">Empleados</a>
+                  <a class="dropdown-item" href="proveedores.jsp">Proveedores</a>
                 </div>
               </li>
               <li class="nav-item dropdown">
@@ -93,38 +69,33 @@
       <!-- Fin Navbar -->
     </section>
     <!-- Fin Inicio -->
-     <!-- Contenido -->
+    <!-- Contenido -->
     <section id="mant-u">
       <div class="container">
         <div class="row">
           <div class="col">
             <div class="mant-box">
-              <h1>Listado de Clientes</h1>
+              <h1>Clientes</h1>
               <table class="table table-hover table-bordered">
                 <thead>
                   <tr>
-                    <th scope="col">Nombre Cliente</th>
-                    <th scope="col">Nombre Empresa</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Empresa</th>
                     <th scope="col">Rut Empresa</th>
                     <th scope="col">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                 <% for(EmpleadosDC lg:listaEmpleados)
-                 {
-                  %>
-                   <td><%=lg.getNombres()%> <%=lg.getApellidos()%></td>
-                  <td> <%=lg.getUsuario()%></td>
-                  <td><%=lg.getCargo()%></td>
-                   <td><%=lg.getRut()%></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                   <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ed">Editar</button>
-                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#el">Eliminar</button></td>   
-                    <%}%>   
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#el">Eliminar</button></td>  
                   </tbody>
                 </table>
                 <div class="btns">
                   <a class="btn btn-light ml-3" href="nuevo-usuario.html" role="button">Nuevo Cliente</a>
-                  <a class="btn btn-light ml-3" href="home.html" role="button">Volver</a>
+                  <a class="btn btn-light ml-3" href="home.jsp" role="button">Volver</a>
                 </div>
               </div>
             </div>
@@ -141,4 +112,3 @@
       <!-- End Scripts -->
     </body>
     </html>
-

@@ -75,6 +75,31 @@
                   <a class="dropdown-item" href="estadisticas.jsp">Estadísticas</a>
                   <a class="dropdown-item" href="facturas.jsp">Facturas</a>
                 </div>
+                  
+           
+              </li>
+              
+               <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  App
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Pedidos</a>
+                  <a class="dropdown-item" href="#">Carga Trabajadores</a>
+                  <a class="dropdown-item" href="#">Facturas</a>
+                </div>
+                  
+           
+              </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Proveedores
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Pedidos</a> 
+                </div>
+                  
+           
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="CerrarSession.jsp">Salir</a>
