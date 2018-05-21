@@ -21,7 +21,7 @@
             </div>
         </div>
     </section>
-    <<section id="log">
+    <section id="log">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 ">

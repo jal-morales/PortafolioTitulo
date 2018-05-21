@@ -27,11 +27,11 @@
                 <div class="col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 ">
                     <form action="./UsserServlet" method="post" name="FormEntrar">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="" placeholder="Codigo empresa" id="codEmp" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="" placeholder="Ingrese correo" id="codEmp" required>
-                        </div>
+                           <input type="text" class="form-control" name="" placeholder="Codigo empresa" id="codEmp" required>
++                        </div>
++                        <div class="form-group">
++                            <input type="text" class="form-control" name="" placeholder="Ingrese correo" id="codEmp" required>
+                         </div>
                         
                         <button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" name="btnLogin" type="submit">Recuperar clave</button>
                     </form>

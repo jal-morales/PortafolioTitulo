@@ -79,7 +79,7 @@
            <input type="text" class="form-control">
          </div>
          <div>
-           <button class="btn-light">Buscar</button>
+           <button class="btn btn-light">Buscar</button>
          </div>
        </div>
        <table class="table table-hover table-bordered">
