@@ -9,7 +9,6 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 
-.idea/
+
 /nbproject/project.properties
 /nbproject/private/private.xml
-/src/PortafolioTitulo1.iml

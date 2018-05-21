@@ -51,7 +51,6 @@
                   Reportes
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="reportes.jsp">Usuarios</a>
                   <a class="dropdown-item" href="estadisticas.jsp">Estadísticas</a>
                   <a class="dropdown-item" href="facturas.jsp">Facturas</a>
                 </div>
@@ -69,78 +68,19 @@
       <!-- Fin Navbar -->
     </section>
     <!-- Fin Inicio -->
-    <!-- Contenido -->
-  <section id="rep-a" class="mt-5">
-    <div class="container">
-     <form action="" method="post">
-       <div class="form-group row justify-content-center">
-        <label class="col-sm-2 col-form-label">Fecha Desde</label>
-        <div class="col-12 col-sm-3">
-          <input class="form-control" type="date">
-        </div>
-        <label class="col-sm-2 col-form-label">Fecha Hasta</label>
-        <div class="col-12 col-sm-3">
-          <input class="form-control" type="date">
-        </div>
-      </div>
-      <hr>
-      <div class="form-group row justify-content-center">
-        <div class="col-12 col-sm-5 col-md-4 col-lg-3">
-          <h5 for="" class="">Seleccione Filtros</h5>
-        </div>
-        <div id="filtros-cliente" class="col-12 col-sm-9 col-md-7 col-lg-5">
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> IP
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> Lugar
-            </label>
-          </div>
-          <div class="form-check form-check-inline disabled">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> Nro Visitas
-            </label>
-          </div>
-          <div class="form-check form-check-inline disabled">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> Cliente
-            </label>
+     <!-- Contenido -->
+    <section id="a-hab">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="hab-box">
+
+            </div>
           </div>
         </div>
       </div>
-      <hr>
-      <div class="btns mb-4">
-        <button type="submit" class="btn btn-light ml-3">Generar Informe</button>
-         <button type="reset" class="btn btn-light ml-3">Limpiar</button>
-      </div>
-     
-      <table class="table table-hover table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">IP</th>
-            <th scope="col">Lugar</th>
-            <th scope="col">Visitas</th>
-            <th scope="col">Cliente</th>
-            <th scope="col">Fecha</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </form> 
-  </div>
-</section>
-<!-- Fin Contenido -->
+    </section>
+    <!-- Fin Contenido -->
       <!-- Scripts -->
       <script src="js/jquery-3.3.1.js"></script>
       <script src="js/bs/popper.js"></script>
