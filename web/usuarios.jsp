@@ -33,12 +33,13 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Usuarios</title>
+  <title>Empleados</title>
   <!-- Css -->
   <link rel="stylesheet" href="css/bs/bootstrap.css">
   <link rel="stylesheet" href="css/bs/bootstrap-grid.css">
   <link rel="stylesheet" href="css/style-app.css">
   <!-- End Css -->
+   <link rel="icon" type="image/png" href="img/c-favicon.png">
   
   <!-- Inicis JS -->
   <script src="js/jquery-3.3.1.js"></script>
@@ -97,7 +98,7 @@
     <!-- Navbar -->
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="home.jsp">
+    <a class="navbar-brand" href="home.jsp">
           <img src="img/logo-n-small.png" width="250"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -109,21 +110,21 @@
                   Usuarios
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                   <a class="dropdown-item" href="clientes.jsp">Clientes</a>
+                  <a class="dropdown-item" href="clientes.jsp">Clientes</a>
                   <a class="dropdown-item" href="usuarios.jsp">Empleados</a>
-                  <a class="dropdown-item" href="proveedores.jsp">proveedores</a>
+                  <a class="dropdown-item" href="proveedores.jsp">Proveedores</a>
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Habitaciones</a>
+                <a class="nav-link" href="habitaciones.jsp">Habitaciones</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Servicios
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Comedor</a>
-                  <a class="dropdown-item" href="#">Accesorios</a>
+                  <a class="dropdown-item" href="serviciosComedor.jsp">Comedor</a>
+                  <a class="dropdown-item" href="accesorios.jsp">Accesorios</a>
                 </div>
               </li>
               <li class="nav-item dropdown">
@@ -131,8 +132,9 @@
                   Reportes
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Estadísticas</a>
-                  <a class="dropdown-item" href="#">Facturas</a>
+                  <a class="dropdown-item" href="reportes.jsp">Usuarios</a>  
+                  <a class="dropdown-item" href="estadisticas.jsp">Estadísticas</a>
+                  <a class="dropdown-item" href="facturas.jsp">Facturas</a>
                 </div>
               </li>
               <li class="nav-item">

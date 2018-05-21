@@ -3,12 +3,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Acceso Usuarios</title>
+    <title>Recuperar Contraseña</title>
     <!-- Css -->
     <link rel="stylesheet" href="css/bs/bootstrap.css">
     <link rel="stylesheet" href="css/bs/bootstrap-grid.css">
     <link rel="stylesheet" href="css/style-app.css">
     <!-- End Css -->
+     <link rel="icon" type="image/png" href="img/c-favicon.png">
 </head>
 <body>
     <section id="hd">
@@ -26,7 +27,10 @@
                 <div class="col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 ">
                     <form action="./UsserServlet" method="post" name="FormEntrar">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="txtCodEmpresa" placeholder="Ingrese correo" id="codEmp" required>
+                            <input type="text" class="form-control" name="" placeholder="Codigo empresa" id="codEmp" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" placeholder="Ingrese correo" id="codEmp" required>
                         </div>
                         
                         <button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" name="btnLogin" type="submit">Recuperar clave</button>
@@ -39,8 +43,6 @@
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bs/popper.js"></script>
     <script src="js/bs/bootstrap.js"></script>
-    <script src="js/tp/slider-revolution.js"></script>
-    <script src="js/tp/tools.min.js"></script>
     <script src="js/vl/jquery.validate.js" type="text/javascript"></script>
     <script src="js/vl/jquery.Rut.js" type="text/javascript"></script>
     <script src="js/functions.js"></script>
