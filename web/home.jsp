@@ -1,3 +1,6 @@
+<%@page import="Modelo.Login"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Controladores.ControladorLogin"%>
 <%
 String usuario=(String)session.getAttribute("txtUsuario");
 String empresa=(String)session.getAttribute("txtCodEmpresa");
@@ -8,6 +11,10 @@ if (usuario==null && codEmpresa==0 )
     dispatcher = request.getRequestDispatcher("/index.jsp"); 
     dispatcher.forward(request, response); 
   } 
+      
+        
+  
+    String tipoUser="";
   %>
   <%@page contentType="text/html" pageEncoding="UTF-8"%>
   <!DOCTYPE html>
@@ -20,7 +27,7 @@ if (usuario==null && codEmpresa==0 )
     <link rel="stylesheet" href="css/style-app.css">
     <!-- End Css -->
     <link rel="icon" type="image/png" href="img/c-favicon.png">
-    <title>Bienvenido</title>
+    <title>Bienvenido </title>
   </head>
   <body>
     <!-- Inicio -->
@@ -39,15 +46,31 @@ if (usuario==null && codEmpresa==0 )
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Usuarios
                   </a>
+                  <% if (tipoUser!="Proveedor") 
+                  {
+ 
+                  %>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="clientes.jsp">Clientes</a>
                     <a class="dropdown-item" href="usuarios.jsp">Empleados</a>
                     <a class="dropdown-item" href="proveedores.jsp">Proveedores</a>
                   </div>
+                  <%}%>
                 </li>
+                
+                <% if (tipoUser!="Proveedor") 
+                {
+                %>
                 <li class="nav-item">
                   <a class="nav-link" href="habitaciones.jsp">Habitaciones</a>
                 </li>
+                
+                <%}%>
+                
+                <% if (tipoUser!="Proveedor") {
+                        
+                   
+                %>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Servicios
@@ -57,6 +80,13 @@ if (usuario==null && codEmpresa==0 )
                     <a class="dropdown-item" href="accesorios.jsp">Accesorios</a>
                   </div>
                 </li>
+                <% }%>
+                
+                <%if (tipoUser!="Proveedor") 
+                {
+                        
+                   
+                %>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Reportes
@@ -67,6 +97,13 @@ if (usuario==null && codEmpresa==0 )
                     <a class="dropdown-item" href="facturas.jsp">Facturas</a>
                   </div>
                 </li>
+                <% }%>
+                
+                 <%if (tipoUser!="Proveedor") 
+                {
+                        
+                   
+                %>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     App
@@ -77,12 +114,14 @@ if (usuario==null && codEmpresa==0 )
                     <a class="dropdown-item" href="#">Facturas</a>
                   </div>
                 </li>
+                
+                <%}%>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Proveedores
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Pedidos</a> 
+                    <a class="dropdown-item" href="verOrdenPedido.jsp">Pedidos</a> 
                   </div>
                 </li>
                 <li class="nav-item">

@@ -1,18 +1,26 @@
-    <%@page import="Modelo.Proveedores"%>
+    <%@page import="Modelo.OrdenDePedido"%>
+<%@page import="Controladores.ControladorOrdenDePedido"%>
+<%@page import="Modelo.Proveedores"%>
     <%@page import="Controladores.ControladorProveedores"%>
     <%@page import="java.util.ArrayList"%>
     <%
     String usuario=(String)session.getAttribute("txtUsuario");
     String empresa=(String)session.getAttribute("txtCodEmpresa");
     int codEmpresa=Integer.parseInt(empresa);
+    
     if (usuario==null && codEmpresa==0 ) 
       {
         RequestDispatcher dispatcher;    
         dispatcher = request.getRequestDispatcher("/index.jsp"); 
         dispatcher.forward(request, response); 
       } 
-      ControladorProveedores ctrem= new ControladorProveedores();
-      ArrayList<Proveedores> listaproveedores=ctrem.ProveedoresListar(codEmpresa);
+    // se rescata variable para filtro de pedidos solicitados.
+    String rutProveedor= request.getParameter("txtVarpedidos");
+      ControladorOrdenDePedido ctrOC= new ControladorOrdenDePedido();
+      ArrayList<OrdenDePedido> listaoc=ctrOC.ListarOrdenPedido(codEmpresa,rutProveedor);
+      
+ 
+
       %>
       <%@page contentType="text/html" pageEncoding="UTF-8"%>
       <!DOCTYPE html>
@@ -121,33 +129,33 @@
             <div class="row">
               <div class="col">
                 <div class="mant-box">
-                  <h1>Listado Proveedores</h1>
-                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#  " onclick="">Agregar</button><br>
+                  <h1>Listado de pedidos solicitados</h1>
                   <table class="table table-hover table-bordered" id="TablaUsserEmpleados">
                     <thead>
                       <tr>
                         <td scope="col">Nombre</td>
                         <td scope="col">Rut</td>
-                        <td scope="col">Rubro</td>
-                        <td scope="col">Telefono</td>
+                        <td scope="col">Fecha Orden</td>
+                        <td scope="col">Numero Pedido</td>
+                        <td scope="col">Solicitado por</td>
                         <td scope="col">Acciones</td>
                       </tr>
                     </thead>
                     <tbody>
-                     <% for(Proveedores lg:listaproveedores)
+                     <% for(OrdenDePedido lg:listaoc)
                      { 
                       %>
-                      <td><%=lg.getNombre()%></td>
-                      <td> <%=lg.getRut()%></td>
-                      <td><%=lg.getRubro()%></td>
-                      <td><%=lg.getNumeroTelefonico()%></td>
-                      <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#">Agregar Pedidos</button>   
-                       <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#" >Ver Pedidos</button></td>   
+                      <td><%=lg.getNombreProveedor()%></td>
+                      <td> <%=lg.getRutProveedor()%></td>
+                      <td><%=lg.getFecha_orden()%></td>
+                      <td><%=lg.getNumero_pedido()%></td>
+                      <td><%=lg.getNomUsser()%></td>
+                      <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#" >Ver detalle pedidos</button></td>   
                      </tbody>
                      <%}%>  
                    </table>
                    <div class="btns">
-                     <a class="btn btn-light ml-3" href="home.jsp" role="button">Volver</a>
+                     <a class="btn btn-light ml-3" href="proveedores.jsp" role="button">Volver</a>
                    </div>
                  </div>
                </div>

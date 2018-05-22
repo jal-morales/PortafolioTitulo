@@ -121,8 +121,7 @@ if (usuario==null && codEmpresa==0 )
         <div class="row">
           <div class="col">
             <div class="mant-box">
-              <h1>Listado Proveedores</h1>
-              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#  " onclick="">Agregar</button><br>
+              <h1>Listado Proveedores</h1>      
               <table class="table table-hover table-bordered" id="TablaUsserEmpleados">
                 <thead>
                   <tr>
@@ -142,12 +141,12 @@ if (usuario==null && codEmpresa==0 )
                   <td><%=lg.getRubro()%></td>
                   <td><%=lg.getNumeroTelefonico()%></td>
                   <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#">Agregar Pedidos</button>   
-                   <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#" ><a href="verOrdenPedido.jsp">Ver Pedidos</a></button></td>   
+                      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#" ><a href="verOrdenPedido.jsp?txtVarpedidos=<%=lg.getRut()%>">Ver Pedidos</a></button></td>   
                  </tbody>
                  <%}%>  
                </table>
                <div class="btns">
-                 <a class="btn btn-light ml-3" href="home.jsp" role="button">Volver</a>
+                
                </div>
              </div>
            </div>

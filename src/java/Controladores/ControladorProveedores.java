@@ -59,6 +59,8 @@ public class ControladorProveedores
 
     } 
      
+     
+     
      /*public static void main(String [] arg)
       {
           ControladorProveedores ctE= new ControladorProveedores();

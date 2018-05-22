@@ -20,13 +20,8 @@ import java.util.ArrayList;
 public class ControladorLogin 
 {
   //MAIN PARA PRUEBAS
-    /*
-    public static void main(String [] arg)
-      {
-          ControladorLogin cl= new ControladorLogin();
-          System.out.println(cl.ListaUsuarios(1));
-         // System.out.println(cl.Login(1,"jlopez","17336928-k"));
-      } */
+   
+    
     
     
     
@@ -115,4 +110,9 @@ public class ControladorLogin
         return new ArrayList<>();
    
     }
+     
+     
+     
+     
+     
 }
