@@ -1,5 +1,30 @@
+<%@page import="Modelo.Habitacion"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Controladores.ControladorHabitaciones"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    String usuario=(String)session.getAttribute("txtUsuario");
+
+           String empresa=(String)session.getAttribute("txtCodEmpresa");
+            int codEmpresa=Integer.parseInt(empresa);
+            String tipoUser=(String)session.getAttribute("tipoUsserP");
+          
+       if (usuario==null && codEmpresa==0 ) 
+        {
+        RequestDispatcher dispatcher;    
+        dispatcher = request.getRequestDispatcher("/index.jsp"); 
+        dispatcher.forward(request, response); 
+     
+        } 
+
+        
+        ControladorHabitaciones ctrH= new ControladorHabitaciones();
+        ArrayList<Habitacion> listaH= ctrH.HabitacionListar(codEmpresa);
+        
+
+%>
 <!DOCTYPE html>
+
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,62 +37,112 @@
   <link rel="icon" type="image/png" href="img/c-favicon.png">
 </head>
 <body>
-  <!-- Inicio -->
-  <section id="inicio">
-    <!-- Navbar -->
-    <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light">
-       <a class="navbar-brand" href="home.jsp">
-          <img src="img/logo-n-small.png" width="250"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-5">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Usuarios
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="clientes.jsp">Clientes</a>
-                  <a class="dropdown-item" href="empleados.jsp">Empleados</a>
-                  <a class="dropdown-item" href="proveedores.jsp">Empleados</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="habitaciones.jsp">Habitaciones</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Servicios
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="serviciosComedor.jsp">Comedor</a>
-                  <a class="dropdown-item" href="accesorios.jsp">Accesorios</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Reportes
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="reportes.jsp">Usuarios</a>  
-                  <a class="dropdown-item" href="estadisticas.jsp">Estadísticas</a>
-                  <a class="dropdown-item" href="facturas.jsp">Facturas</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="CerrarSession.jsp">Salir</a>
-              </li>
-              <li>
-                <a class="btn btn-light ml-3" href="#" role="button">Ayuda</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-      <!-- Fin Navbar -->
-    </section>
+   <!-- Inicio -->
+    <section id="inicio">
+      <!-- Navbar -->
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="home.jsp">
+            <img src="img/logo-n-small.png" width="250"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-5">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Usuarios
+                  </a>
+                  <% if (tipoUser.equals("Administrador")) 
+                  {
+ 
+                  %>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="clientes.jsp">Clientes</a>
+                    <a class="dropdown-item" href="usuarios.jsp">Empleados</a>
+                    <a class="dropdown-item" href="proveedores.jsp">Proveedores</a>
+                  </div>
+                  <%}%>
+                </li>
+                
+                <% if (tipoUser.equals("Administrador")) 
+                {
+                %>
+                <li class="nav-item">
+                  <a class="nav-link" href="habitaciones.jsp">Habitaciones</a>
+                </li>
+                
+                <%}%>
+                
+                <% if (tipoUser.equals("Administrador")) {
+                        
+                   
+                %>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Servicios
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="serviciosComedor.jsp">Comedor</a>
+                    <a class="dropdown-item" href="accesorios.jsp">Accesorios</a>
+                  </div>
+                </li>
+                <% }%>
+                
+                <%if (tipoUser.equals("Administrador")) 
+                {
+                        
+                   
+                %>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Reportes
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="reportes.jsp">Usuarios</a>  
+                    <a class="dropdown-item" href="estadisticas.jsp">Estadísticas</a>
+                    <a class="dropdown-item" href="facturas.jsp">Facturas</a>
+                  </div>
+                </li>
+                <% }%>
+                
+                 <%if (tipoUser.equals("Administrador")) 
+                {
+                        
+                   
+                %>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    App
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Pedidos</a>
+                    <a class="dropdown-item" href="#">Carga Trabajadores</a>
+                    <a class="dropdown-item" href="#">Facturas</a>
+                  </div>
+                </li>
+                
+                <%}%>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Proveedores
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="verOrdenPedido.jsp">Pedidos</a> 
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="CerrarSession.jsp">Salir</a>
+                </li>
+                <li>
+                  <a class="btn btn-light ml-3" href="#" role="button">Ayuda</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!-- Fin Navbar -->
+      </section>
     <!-- Fin Inicio -->
     <!-- Contenido -->
     <section id="mant-u">
@@ -87,20 +162,24 @@
                     <th scope="col">Acciones</th>
                   </tr>
                 </thead>
+                 <% for (Habitacion h:listaH)
+                {
+                %>
                 <tbody>
-                
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ed">Editar</button>
-                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#el">Eliminar</button></td>   
+               
+                  <td><%=h.getNumHabitacion()%></td>
+                  <td><%=h.getPsoHabitacion()%></td>
+                  <td><%=h.getTipohabitacion()%></td>
+                  <td><%=h.getEstado()%></td>
+                  <td>$<%=h.getPrecio()%></td>
+                  <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ed">Reservar</button>
+                    </td>   
                  
                   </tbody>
+                  <%}%>
                 </table>
                 <div class="btns">
-                  <a class="btn btn-light ml-3" href="nuevo-usuario.html" role="button">Nueva Habitación</a>
+                  
                   <a class="btn btn-light ml-3" href="home.jsp" role="button">Volver</a>
                 </div>
               </div>
