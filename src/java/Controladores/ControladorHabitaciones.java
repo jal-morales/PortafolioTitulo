@@ -103,13 +103,13 @@ public class ControladorHabitaciones
             //Agregar Habitaciones
             //Eliminar habitaciones
             
-            public  void EliminarHabitacion(Habitacion EliminarEmpleados)
+            public  void EliminarHabitacion(Habitacion Eliminarhabitacion)
       {
             try {
                   ConexionBD con = new ConexionBD();
                   Connection conectar= con.getConnection();
          
-                  String consulta="DELETE  FROM EMPLEADOS WHERE IDEMPRESADOS="+EliminarEmpleados.getIdEmpleadosDC()+"";
+                  String consulta="DELETE  FROM habitacion WHERE IDHABITACION="+Eliminarhabitacion.getIdHabitacion()+"";
                   System.out.println(consulta);
 
                     PreparedStatement stms= conectar.prepareStatement(consulta);
@@ -129,14 +129,48 @@ public class ControladorHabitaciones
      
             } catch (Exception e) 
             {
-                  System.out.println("Revisar try Elminacion de empleados.");
+                  System.out.println("Revisar try Elminacion de habitaciones.");
                  e.printStackTrace();
             }
      
       } 
             
             
-                 
+        //Agregar Clientes
+    public void AgregarHabitacion(Habitacion Nhabitacion)
+        {
+            try {
+                ConexionBD conn = new ConexionBD();
+             Connection conexion = conn.getConnection();
+             
+         
+                  String consulta="INSERT INTO HABITACION VALUES(CNTEO.nextval,'"+Nhabitacion.getTipohabitacion()+"',"+ Nhabitacion.getPrecio()+",'"+Nhabitacion.getEstado()+"',"+ Nhabitacion.getNumHabitacion()+","+Nhabitacion.getPsoHabitacion()+",'"+Nhabitacion.getCodEmpresa()+"')";
+                 System.out.println(consulta); 
+                   PreparedStatement stms= conexion.prepareStatement(consulta);
+                
+                   //llamamos al Statement que ejecutas sentencias Sql
+                        if (stms!=null ) 
+                        {
+                           stms.executeUpdate(consulta);
+  
+                        }
+                        else 
+                        {
+                            System.out.println("Query no ejecutada");
+                        }
+     
+            } catch (Exception e) 
+            {
+                  System.out.println("Revisar try Agregar Habitaciones");
+                 e.printStackTrace();
+            }
+            
+            
+            
+   
+            
+           
+        }         
              
     
 }
